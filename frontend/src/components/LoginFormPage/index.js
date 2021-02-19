@@ -26,19 +26,20 @@ const LoginFormPage = ({ hideForm }) => {
       }
     );
   };
-  //TODO: add hideForm functionality with state
-  const handleCancelClick = (e) => {
-    e.preventDefault();
-    hideForm();
-  };
+
+  // //TODO: add hideForm functionality with state
+  // const handleCancelClick = (e) => {
+  //   e.preventDefault();
+  //   hideForm();
+  // };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit} hidden={hideForm}>
+    <form className="login-form" onSubmit={handleSubmit}>
       <div>
         <button
           className="login-form-buttons"
           type="button"
-          onClick={handleCancelClick}
+          // onClick={handleCancelClick}
         >
           X
         </button>
