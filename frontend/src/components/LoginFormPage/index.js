@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./LoginForm.css";
 
 const LoginFormPage = ({ hideForm }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const history = useHistory;
 
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) history.push("/");
+  if (sessionUser) {
+    return <Redirect to="/" />;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,14 +26,14 @@ const LoginFormPage = ({ hideForm }) => {
       }
     );
   };
-
+  //TODO: add hideForm functionality with state
   const handleCancelClick = (e) => {
     e.preventDefault();
     hideForm();
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit} hidden={hideForm}>
       <div>
         <button
           className="login-form-buttons"
@@ -60,6 +61,7 @@ const LoginFormPage = ({ hideForm }) => {
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
+          autoComplete="username"
         />
       </div>
       <div>
@@ -72,6 +74,7 @@ const LoginFormPage = ({ hideForm }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete="current-password"
         />
       </div>
       <button className="login-form-buttons" type="submit">
