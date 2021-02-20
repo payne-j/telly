@@ -1,6 +1,6 @@
 # telly
 
-**Description**: Telly is an online marketplace that connects people who want to rent out accommodations with pop-culture status in regards to some of the world's most popular music.
+**Description**: Telly is an online marketplace that connects people who want to rent out accommodations with musical pop-culture status. 
 
 Other things to include:
 
