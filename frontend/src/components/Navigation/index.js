@@ -21,14 +21,12 @@ const Navigation = ({ isLoaded }) => {
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
-        {isLoaded && navLinks}
-      </li>
-    </ul>
+    <nav className="nav-bar">
+      <NavLink exact to="/">
+        <i className="fas fa-hotel"></i>
+      </NavLink>
+      {isLoaded && navLinks}
+    </nav>
   );
 };
 
