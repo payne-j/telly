@@ -32,6 +32,14 @@
   padding: 10px;
 }
 
+input {
+  border-radius: 10px;
+}
+
+input:active {
+  border-color: 183, 183, 164;
+}
+
 .cancel-btn {
   background: transparent;
   border-color: transparent;

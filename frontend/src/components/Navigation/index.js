@@ -13,16 +13,16 @@ const Navigation = ({ isLoaded }) => {
     navLinks = <ProfileButton user={sessionUser} />;
   } else {
     navLinks = (
-      <>
+      <div>
         <LoginFormModal />
         <SignupFormModal />
-      </>
+      </div>
     );
   }
 
   return (
     <nav className="nav-bar">
-      <button onClick={() => <Link to="/" />}>
+      <button id="home-btn" onClick={() => <Link to="/" />}>
         <i className="fas fa-hotel"></i>
       </button>
       {isLoaded && navLinks}

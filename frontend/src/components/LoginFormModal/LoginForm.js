@@ -35,7 +35,7 @@ function LoginForm() {
           <div>
             <input
               type="text"
-              className="login-input"
+              className="login-inputs"
               placeholder="     username | email"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
@@ -46,7 +46,7 @@ function LoginForm() {
           <div>
             <input
               type="password"
-              className="login-input"
+              className="login-inputs"
               placeholder="            password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

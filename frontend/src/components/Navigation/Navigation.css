@@ -6,3 +6,12 @@
 #nav-logout {
   border-radius: 100px;
 }
+
+#home-btn {
+  background: transparent;
+  border-color: transparent;
+}
+
+.drop-menu {
+  margin-left: 10px;
+}
