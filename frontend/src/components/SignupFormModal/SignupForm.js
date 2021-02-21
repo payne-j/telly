@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
-import SignupFormModal from "./SignupFormModal.css";
+import "./SignupFormModal.css";
 
 const SignupForm = () => {
   const dispatch = useDispatch();
@@ -27,65 +27,70 @@ const SignupForm = () => {
   };
 
   return (
-    <form className="signup-form" onSubmit={handleSubmit}>
-      <div className="form-container">
-        <div id="signup-errors">
-          <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
+    <>
+      <button className="cancel-btn">
+        <i className="far fa-times-circle"></i>
+      </button>
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <div className="form-container">
+          <div id="signup-errors">
+            <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+          </div>
+          <div id="title">Create an account</div>
+          <div>
+            <input
+              className="signup-inputs"
+              placeholder="           username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              autoComplete="username"
+            />
+          </div>
+          <div>
+            <input
+              className="signup-inputs"
+              placeholder="               email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
+          </div>
+          <div>
+            <input
+              className="signup-inputs"
+              placeholder="            password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          <div>
+            <input
+              className="signup-inputs"
+              placeholder="      confirm password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          <button id="signup-btn" type="submit">
+            Sign up
+          </button>
         </div>
-        <div id="title">Create an account</div>
-        <div>
-          <input
-            className="signup-inputs"
-            placeholder="           username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            autoComplete="username"
-          />
-        </div>
-        <div>
-          <input
-            className="signup-inputs"
-            placeholder="               email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            autoComplete="email"
-          />
-        </div>
-        <div>
-          <input
-            className="signup-inputs"
-            placeholder="            password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            autoComplete="current-password"
-          />
-        </div>
-        <div>
-          <input
-            className="signup-inputs"
-            placeholder="      confirm password"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            autoComplete="current-password"
-          />
-        </div>
-        <button id="signup-btn" type="submit">
-          sign up
-        </button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 

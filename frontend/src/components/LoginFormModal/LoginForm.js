@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import LoginFormModal from "./LoginFormModal.css";
+import "./LoginFormModal.css";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -21,43 +21,48 @@ function LoginForm() {
   };
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
-      <div className="form-container">
-        <div id="login-errors">
-          <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
+    <>
+      <button className="cancel-btn">
+        <i className="far fa-times-circle"></i>
+      </button>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="form-container">
+          <div id="login-errors">
+            <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="title">Log in</div>
+          <div>
+            <input
+              type="text"
+              className="login-input"
+              placeholder="     username | email"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+              autoComplete="username"
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              className="login-input"
+              placeholder="            password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          <button id="login-btn" type="submit">
+            Continue
+          </button>
         </div>
-        <div className="title">Log in</div>
-        <div>
-          <input
-            type="text"
-            className="login-input"
-            placeholder="     username | email"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-            autoComplete="username"
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            className="login-input"
-            placeholder="            password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            autoComplete="current-password"
-          />
-        </div>
-        <button id="login-btn" type="submit">
-          continue
-        </button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 }
 

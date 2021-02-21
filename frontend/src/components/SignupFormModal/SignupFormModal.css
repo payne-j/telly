@@ -25,3 +25,8 @@
   color: #bbbbbb;
   border-color: #bbbbbb;
 }
+
+.cancel-btn {
+  background: transparent;
+  border-color: transparent;
+}

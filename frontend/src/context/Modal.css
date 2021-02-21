@@ -19,8 +19,7 @@
 }
 
 #modal-content {
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
+  font-family: 'Montserrat', sans-serif;  position: absolute;
   background-color: rgba(240, 239, 235, 1);
   min-width: 40%;
   min-height: 40%;
