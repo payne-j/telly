@@ -19,7 +19,8 @@
 }
 
 #modal-content {
-  font-family: 'Montserrat', sans-serif;  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
   background-color: rgba(240, 239, 235, 1);
   min-width: 40%;
   min-height: 40%;
@@ -29,4 +30,19 @@
 
 #title {
   padding: 10px;
+}
+
+.cancel-btn {
+  background: transparent;
+  border-color: transparent;
+  padding: 10px;
+}
+
+#cancel-icon:hover {
+  color: rgba(0, 0, 0, 0.7);
+  border-color: #dddddd;
+}
+#cancel-icon:active {
+  color: #bbbbbb;
+  border-color: #bbbbbb;
 }

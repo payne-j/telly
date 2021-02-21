@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import "./SignupFormModal.css";
 
@@ -28,9 +28,6 @@ const SignupForm = () => {
 
   return (
     <>
-      <button className="cancel-btn">
-        <i className="far fa-times-circle"></i>
-      </button>
       <form className="signup-form" onSubmit={handleSubmit}>
         <div className="form-container">
           <div id="signup-errors">

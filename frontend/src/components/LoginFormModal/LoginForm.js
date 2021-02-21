@@ -22,9 +22,6 @@ function LoginForm() {
 
   return (
     <>
-      <button className="cancel-btn">
-        <i className="far fa-times-circle"></i>
-      </button>
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="form-container">
           <div id="login-errors">
