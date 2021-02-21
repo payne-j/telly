@@ -12,9 +12,9 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
       <Navigation isLoaded={isLoaded} />
-    </>
+    </div>
   );
 }
 

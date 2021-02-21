@@ -1,7 +1,27 @@
 .form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-items: center;
+  grid-gap: 8px;
   min-width: 200px;
   min-height: 400px;
+}
+
+#login-btn {
+  display: inline-block;
+  border: 0.16em solid #ffffff;
+  color: black;
+  text-align: center;
+  transition: all 0.15s;
+  border-radius: 10px;
+  max-height: 25px;
+  min-width: 80px;
+}
+
+#login-btn:hover {
+  color: black;
+  border-color: #dddddd;
+}
+#login-btn:active {
+  color: #bbbbbb;
+  border-color: #bbbbbb;
 }

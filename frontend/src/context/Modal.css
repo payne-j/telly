@@ -15,10 +15,19 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 241, 230, 0.7);
 }
 
 #modal-content {
+  font-family: Arial, Helvetica, sans-serif;
   position: absolute;
-  background-color:white;
+  background-color: rgba(240, 239, 235, 1);
+  min-width: 40%;
+  min-height: 40%;
+  border-radius: 20px;
+  border: 1px solid rgba(237, 220, 210, 1);
+}
+
+.title {
+  padding: 10px;
 }

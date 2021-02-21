@@ -30,14 +30,12 @@ function LoginForm() {
             ))}
           </ul>
         </div>
-        <div id="login-title">Log in</div>
-        <div>
-          <label className="login-label">Username or Email</label>
-        </div>
+        <div className="title">Log in</div>
         <div>
           <input
             type="text"
             className="login-input"
+            placeholder="     username | email"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
@@ -45,12 +43,10 @@ function LoginForm() {
           />
         </div>
         <div>
-          <label className="login-label">Password</label>
-        </div>
-        <div>
           <input
             type="password"
             className="login-input"
+            placeholder="            password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -58,7 +54,7 @@ function LoginForm() {
           />
         </div>
         <button id="login-btn" type="submit">
-          Log In
+          continue
         </button>
       </div>
     </form>
