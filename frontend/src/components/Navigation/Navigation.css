@@ -15,7 +15,8 @@
 }
 
 #nav-logout {
-  border-radius: 100px;
+  border: none;
+  background: transparent;
 }
 
 #home-btn {
