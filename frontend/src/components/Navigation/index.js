@@ -1,12 +1,14 @@
-import { Link, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import DropMenu from "./DropMenu";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import DemoButton from "./DemoButton";
 import "./Navigation.css";
 
 const Navigation = ({ isLoaded }) => {
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
   let navLinks;
@@ -15,8 +17,7 @@ const Navigation = ({ isLoaded }) => {
   } else {
     navLinks = (
       <>
-        <LoginFormModal />
-        <SignupFormModal />
+        <DropMenu />
         <DemoButton />
       </>
     );
@@ -24,8 +25,12 @@ const Navigation = ({ isLoaded }) => {
 
   return (
     <nav className="nav-bar">
-      <button className="nav-btn" onClick={() => <Link to="/" />}>
-        <i className="fas fa-hotel fa-2x"></i>
+      <button
+        id="home-btn"
+        className="nav-btn"
+        onClick={() => history.push("/")}
+      >
+        <i className="fas fa-hotel"></i>
       </button>
       {isLoaded && navLinks}
     </nav>

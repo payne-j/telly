@@ -1,12 +1,17 @@
-.nav-btn {
-  background: transparent;
-  border: none;
+.nav-bar {
+  background-color: rgba(237, 220, 210, 0.2);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 50px;
+  max-height: 50px;
 }
 
-#nav-drop {
+#drop-btn {
+  border-radius: 100px;
   background: transparent;
   border: none;
-  min-width: 100px;
 }
 
 #nav-logout {
