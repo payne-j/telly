@@ -54,3 +54,42 @@ input:active {
   color: #bbbbbb;
   border-color: #bbbbbb;
 }
+
+.errors-list li {
+  list-style: none;
+  color: rgba(203, 153, 126, 1);
+}
+
+input:hover {
+  background-color: rgba(240, 239, 235, 0.3);
+}
+
+.form-container {
+  display: grid;
+  justify-items: center;
+  grid-gap: 8px;
+  min-width: 200px;
+  min-height: 400px;
+}
+
+.modal-btn {
+  display: inline-block;
+  border: 0.16em solid #ffffff;
+  color: black;
+  text-align: center;
+  transition: all 0.15s;
+  border-radius: 10px;
+  max-height: 25px;
+  min-width: 80px;
+  background-color: rgba(221, 190, 169, 0.3);
+}
+
+.modal-btn:hover {
+  color: black;
+  border-color: #dddddd;
+  background-color: rgba(221, 190, 169, 0.5);
+}
+.modal-btn:active {
+  color: #bbbbbb;
+  border-color: #bbbbbb;
+}

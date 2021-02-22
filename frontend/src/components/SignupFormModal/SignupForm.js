@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
-import "./SignupFormModal.css";
 
 const SignupForm = () => {
   const dispatch = useDispatch();
 
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -30,8 +32,8 @@ const SignupForm = () => {
     <>
       <form className="signup-form" onSubmit={handleSubmit}>
         <div className="form-container">
-          <div id="signup-errors">
-            <ul>
+          <div>
+            <ul className="errors-list">
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
@@ -40,7 +42,26 @@ const SignupForm = () => {
           <div id="title">Create an account</div>
           <div>
             <input
-              className="signup-inputs"
+              placeholder="           first name"
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              autoComplete="first-name"
+            />
+          </div>
+          <div>
+            <input
+              placeholder="           last name"
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              autoComplete="last-name"
+            />
+          </div>
+          <div>
+            <input
               placeholder="           username"
               type="text"
               value={username}
@@ -51,7 +72,6 @@ const SignupForm = () => {
           </div>
           <div>
             <input
-              className="signup-inputs"
               placeholder="               email"
               type="email"
               value={email}
@@ -62,7 +82,16 @@ const SignupForm = () => {
           </div>
           <div>
             <input
-              className="signup-inputs"
+              placeholder="               phone"
+              type="tel"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              required
+              autoComplete="phone"
+            />
+          </div>
+          <div>
+            <input
               placeholder="            password"
               type="password"
               value={password}
@@ -73,7 +102,6 @@ const SignupForm = () => {
           </div>
           <div>
             <input
-              className="signup-inputs"
               placeholder="      confirm password"
               type="password"
               value={confirmPassword}
@@ -82,7 +110,7 @@ const SignupForm = () => {
               autoComplete="current-password"
             />
           </div>
-          <button id="signup-btn" type="submit">
+          <button className="modal-btn" type="submit">
             Sign up
           </button>
         </div>
