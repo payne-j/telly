@@ -18,10 +18,10 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id="nav-drop" onClick={toggleMenu}>
-        <i className="far fa-user-circle fa-2x"></i>
+        <i id="user-icon" className="far fa-user-circle fa-2x"></i>
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
+        <ul className="drop-menu">
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>

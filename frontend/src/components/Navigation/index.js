@@ -2,9 +2,6 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import DropMenu from "./DropMenu";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
-import DemoButton from "./DemoButton";
 import "./Navigation.css";
 
 const Navigation = ({ isLoaded }) => {
@@ -18,7 +15,6 @@ const Navigation = ({ isLoaded }) => {
     navLinks = (
       <>
         <DropMenu />
-        <DemoButton />
       </>
     );
   }
@@ -30,8 +26,9 @@ const Navigation = ({ isLoaded }) => {
         className="nav-btn"
         onClick={() => history.push("/")}
       >
-        <i className="fas fa-hotel"></i>
+        <i className="fas fa-hotel fa-2x"></i>
       </button>
+      <span className='nav-title'>telly</span>
       {isLoaded && navLinks}
     </nav>
   );

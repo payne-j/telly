@@ -1,3 +1,11 @@
-#fd59ce54-f850-4dfc-bc34-dd7d379d600e {
+.page-not-found-title {
+  padding: 30px;
+  font-size: 20px;
+  position: absolute;
   width: 100%;
+  height: auto;
+}
+#ee5053fc-ea24-484a-861d-c80bd2ae1a91 {
+  width: 100%;
+  padding-top: 60px;
 }
