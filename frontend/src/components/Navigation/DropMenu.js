@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import DemoButton from "./DemoButton";
 import "./Navigation.css";
 
 function DropMenu() {
@@ -11,21 +12,25 @@ function DropMenu() {
   };
 
   return (
-    <div className="drop-menu">
-      <button id="drop-btn" onClick={toggleMenu}>
-        <i className="far fa-user-circle fa-2x"></i>
+    <div className="drop-container">
+      <button id="nav-drop" onClick={toggleMenu}>
+        <i
+          id="user-icon"
+          className="far fa-user-circle fa-2x"
+        ></i>
       </button>
       {showMenu && (
-        <div>
-          <ul className="profile-dropdown">
+          <ul className="drop-menu">
             <li>
               <LoginFormModal />
             </li>
             <li>
               <SignupFormModal />
             </li>
+            <li>
+              <DemoButton />
+            </li>
           </ul>
-        </div>
       )}
     </div>
   );

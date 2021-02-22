@@ -1,5 +1,4 @@
 .nav-bar {
-  background-color: rgba(237, 220, 210, 0.2);
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -8,10 +7,15 @@
   max-height: 50px;
 }
 
-#drop-btn {
+#nav-drop {
   border-radius: 100px;
   background: transparent;
   border: none;
+}
+
+.nav-btn {
+  border: none;
+  background: transparent;
 }
 
 #nav-logout {
@@ -26,4 +30,13 @@
 
 .drop-menu {
   margin-left: 10px;
+  position: relative;
+  list-style: none;
+}
+
+.nav-title {
+  font-size: 2em;
+  font-weight: bold;
+  position: absolute;
+  left: 100px;
 }

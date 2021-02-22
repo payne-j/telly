@@ -1,3 +1,22 @@
-#b15325d2-ef49-41bb-b39b-b88ff27f55f0 {
+.search-div {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+#banner-pic {
   width: 100%;
+}
+
+.div-line {
+  height: 30px;
+  border-bottom: 2px solid black;
+}
+
+.nearby-rentals {
+  height: 100px;
+}
+
+.meet-our-hosts {
+  height: 100px;
 }
