@@ -13,10 +13,10 @@ const Navigation = ({ isLoaded }) => {
     navLinks = <ProfileButton user={sessionUser} />;
   } else {
     navLinks = (
-      <div>
+      <>
         <LoginFormModal />
         <SignupFormModal />
-      </div>
+      </>
     );
   }
 
