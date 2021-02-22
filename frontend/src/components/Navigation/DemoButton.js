@@ -12,7 +12,7 @@ function DemoButton() {
   };
   return (
     <>
-      <button id="demo-btn" onClick={login}>
+      <button id="demo-btn" className="nav-btn" onClick={login}>
         Demo
       </button>
     </>

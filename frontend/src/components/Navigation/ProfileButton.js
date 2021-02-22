@@ -18,7 +18,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button id="nav-drop" onClick={toggleMenu}>
-        <i className="far fa-user-circle"></i>
+        <i className="far fa-user-circle fa-2x"></i>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
@@ -26,7 +26,7 @@ function ProfileButton({ user }) {
           <li>{user.email}</li>
           <li>
             <button id="nav-logout" onClick={logout}>
-              <i className="fas fa-sign-out-alt"></i> log out
+              log out <i className="fas fa-sign-out-alt"></i>
             </button>
           </li>
         </ul>
