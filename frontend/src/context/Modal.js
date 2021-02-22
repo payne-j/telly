@@ -27,7 +27,12 @@ export function Modal({ onClose, children }) {
   return ReactDOM.createPortal(
     <div id="modal">
       <div id="modal-background" onClick={onClose} />
-      <div id="modal-content">{children}</div>
+      <div id="modal-content">
+        <button className="cancel-btn" onClick={onClose}>
+          <i id="cancel-icon" className="far fa-times-circle"></i>
+        </button>
+        {children}{" "}
+      </div>
     </div>,
     modalNode
   );
