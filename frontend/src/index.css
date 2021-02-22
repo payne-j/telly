@@ -2,3 +2,8 @@ body {
   background-color: rgba(255, 241, 230, 0.7);
   font-family: "Montserrat", sans-serif;
 }
+
+.nav-btn {
+  background: transparent;
+  border: none;
+}

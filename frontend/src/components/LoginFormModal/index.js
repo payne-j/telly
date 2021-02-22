@@ -7,7 +7,7 @@ function LoginFormModal() {
 
   return (
     <>
-      <button id="nav-login-btn" onClick={() => setShowModal(true)}>
+      <button className="nav-btn" onClick={() => setShowModal(true)}>
         Log in
       </button>
       {showModal && (

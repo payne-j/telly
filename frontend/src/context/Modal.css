@@ -57,11 +57,13 @@ input:active {
 
 .errors-list li {
   list-style: none;
-  color: rgba(203, 153, 126, 1);
+  color: black;
+  font-weight: bold;
 }
 
 input:hover {
-  background-color: rgba(240, 239, 235, 0.3);
+  background-color: rgba(240, 239, 235, 0.2);
+  cursor: pointer;
 }
 
 .form-container {
@@ -82,14 +84,19 @@ input:hover {
   max-height: 25px;
   min-width: 80px;
   background-color: rgba(221, 190, 169, 0.3);
+  cursor: pointer;
 }
 
 .modal-btn:hover {
   color: black;
-  border-color: #dddddd;
+  border-color: rgba(165, 165, 141, 0.2);
   background-color: rgba(221, 190, 169, 0.5);
 }
 .modal-btn:active {
   color: #bbbbbb;
   border-color: #bbbbbb;
+}
+
+::placeholder {
+  color: rgba(203, 153, 126, 0.7);
 }
