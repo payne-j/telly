@@ -1,9 +1,7 @@
 #modal {
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,5 +96,5 @@ input:hover {
 }
 
 ::placeholder {
-  color: rgba(203, 153, 126, 0.7);
+  color: rgba(10, 10, 10, 0.7);
 }

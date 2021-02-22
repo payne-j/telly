@@ -1,10 +1,17 @@
+.nav-btn {
+  background: transparent;
+  border: none;
+}
+
 #nav-drop {
-  border-radius: 100px;
+  background: transparent;
+  border: none;
   min-width: 100px;
 }
 
 #nav-logout {
-  border-radius: 100px;
+  border: none;
+  background: transparent;
 }
 
 #home-btn {

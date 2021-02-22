@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import DemoButton from "./DemoButton";
 import "./Navigation.css";
 
 const Navigation = ({ isLoaded }) => {
@@ -16,14 +17,15 @@ const Navigation = ({ isLoaded }) => {
       <>
         <LoginFormModal />
         <SignupFormModal />
+        <DemoButton />
       </>
     );
   }
 
   return (
     <nav className="nav-bar">
-      <button id="home-btn" onClick={() => <Link to="/" />}>
-        <i className="fas fa-hotel"></i>
+      <button className="nav-btn" onClick={() => <Link to="/" />}>
+        <i className="fas fa-hotel fa-2x"></i>
       </button>
       {isLoaded && navLinks}
     </nav>
