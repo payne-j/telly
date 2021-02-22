@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import PageNotFound from "./components/PageNotFound";
+import Search from "./components/Search";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <Search />
       <Switch>
         <Route path="/" exact>
           <HomePage />

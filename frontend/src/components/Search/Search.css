@@ -1,0 +1,10 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
