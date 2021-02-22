@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import DemoButton from "./DemoButton";
 import "./Navigation.css";
 
 const Navigation = ({ isLoaded }) => {
@@ -16,6 +17,7 @@ const Navigation = ({ isLoaded }) => {
       <>
         <LoginFormModal />
         <SignupFormModal />
+        <DemoButton />
       </>
     );
   }
