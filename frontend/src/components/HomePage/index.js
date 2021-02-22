@@ -2,7 +2,8 @@ import "./HomePage.css";
 
 function HomePage() {
   return (
-    <> 
+    <>
+      <div className="search-div">SEARCHBAR</div>
       <div id="banner-pic">
         <svg
           className="banner-pic"
@@ -270,8 +271,10 @@ function HomePage() {
           />
         </svg>
       </div>
-      <div className='div-line'></div>
-      <div>Nearby Rentals</div>
+      <div className="div-line"></div>
+      <div className="nearby-rentals">Nearby Rentals</div>
+      <div className="div-line"></div>
+      <div className="meet-our-hosts">Meet Our Hosts</div>
     </>
   );
 }
