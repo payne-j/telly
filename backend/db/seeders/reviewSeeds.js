@@ -58,20 +58,8 @@ module.exports = {
         reviewSeeds.push(randomReview);
       }
       return reviewSeeds;
-
     }
-
-
-    return queryInterface.bulkInsert(
-      "Reviews",
-      [
-        {
-          name: "John Doe",
-          isBetaMember: false,
-        },
-      ],
-      {}
-    );
+    return queryInterface.bulkInsert("Reviews", reviews(), {});
   },
 
   down: (queryInterface, Sequelize) => {
