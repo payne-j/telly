@@ -23,6 +23,7 @@
     "express-async-handler": "^1.1.4",
     "express-validator": "^6.9.2",
     "faker": "^5.4.0",
+    "give-me-an-avatar": "^1.0.0",
     "helmet": "^4.4.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
