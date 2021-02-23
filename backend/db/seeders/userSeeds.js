@@ -23,7 +23,8 @@ module.exports = {
           username: "Eagles",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "http://www.donhenleyonline.com/images/DHenleyOOTNSB01.jpg",
           passwordHash: password,
         },
         {
@@ -32,7 +33,8 @@ module.exports = {
           username: "barry",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "https://i1.sndcdn.com/avatars-000296314441-s7pm8i-t240x240.jpg",
           passwordHash: password,
         },
         {
@@ -41,7 +43,7 @@ module.exports = {
           username: "the-king",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage: "https://avatarfiles.alphacoders.com/716/71639.jpg",
           passwordHash: password,
         },
         {
@@ -50,7 +52,8 @@ module.exports = {
           username: "bangbangboogie",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "https://img2.grunge.com/img/gallery/the-untold-truth-of-the-sugarhill-gang/l-intro-1600102253.jpg",
           passwordHash: password,
         },
         {
@@ -59,7 +62,8 @@ module.exports = {
           username: "ritzyritz",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "https://i.pinimg.com/originals/3d/ed/46/3ded46672f467948fc20d1dad562ff3c.jpg",
           passwordHash: password,
         },
         {
@@ -68,7 +72,8 @@ module.exports = {
           username: "white-stripes",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "https://i1.sndcdn.com/avatars-000009981570-mgdh0c-t500x500.jpg",
           passwordHash: password,
         },
         {
@@ -77,7 +82,8 @@ module.exports = {
           username: "rocknroll",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "https://popnable.com/images/singers/large/the_rolling_stones_united_kingdom_top_50_232.jpeg",
           passwordHash: password,
         },
         {
@@ -86,7 +92,8 @@ module.exports = {
           username: "queenofjazz",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "https://www.biography.com/.image/t_share/MTE4MDAzNDEwNTIyNTA2NzY2/ella-fitzgerald-9296210-1-402.jpg",
           passwordHash: password,
         },
         {
@@ -95,7 +102,8 @@ module.exports = {
           username: "loneyboy",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
-          profileImage: avatar.giveMeAnAvatar(),
+          profileImage:
+            "https://lastfm.freetls.fastly.net/i/u/300x300/087f1f97f15c9fcef9c74bb5fe58b33c.jpg",
           passwordHash: password,
         },
       ];
