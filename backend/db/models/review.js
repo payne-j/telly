@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       bookingId: DataTypes.INTEGER,
       rating: DataTypes.INTEGER,
       comment: DataTypes.TEXT,
-      userId: DataTypes.INTEGER,
     },
     {}
   );
