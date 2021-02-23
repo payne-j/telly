@@ -205,7 +205,7 @@ module.exports = {
           hostId: 8,
         },
         {
-          name: "",
+          name: "Fat Chance Hotel",
           type: "Resort",
           totalBedrooms: bedrooms,
           totalBathrooms: bathrooms,

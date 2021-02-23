@@ -16,22 +16,20 @@ module.exports = {
       max: 2500,
     });
     const addDays = (date, days) => {
-      const newDate = new Date(Number(date))
-      newDate.setDate(date.getDate() + days)
-      return newDate
-    }
+      const newDate = new Date(Number(date));
+      newDate.setDate(date.getDate() + days);
+      return newDate;
+    };
 
     const date = new Date();
     const newDate = addDays(date, 10);
 
-
     const daysAhead = Math.round(Math.random() * 15.5) + 1;
-    const startDate = addDays(date , daysAhead);
+    const startDate = addDays(date, daysAhead);
     const lengthOfStay = Math.round(Math.random() * 5.5) + 1;
     const endDate = addDays(startDate, lengthOfStay);
 
     const bookings = () => {
-
       const bookingSeeds = [
         {
           userId: 1,
@@ -51,10 +49,10 @@ module.exports = {
           userId: 1,
           tellyId: telly,
           startDate: "2020-02-12",
-          endDate: "20-02-29",
+          endDate: "2020-02-28",
           total: total,
         },
-      ],
+      ];
       for (let i = 0; i < 50; i++) {
         let randomBooking = {
           userId: user,
@@ -62,13 +60,11 @@ module.exports = {
           startDate: startDate,
           endDate: endDate,
           total: total,
-
         };
         bookingSeeds.push(randomBooking);
       }
       return bookingSeeds;
-
-    }
+    };
 
     return queryInterface.bulkInsert("Bookings", bookings(), {});
   },

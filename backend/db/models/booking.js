@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Booking.associate = function (models) {
-    
+
   };
   return Booking;
 };
