@@ -59,15 +59,15 @@ module.exports = {
           recipientId: recipient,
         },
       ];
-      for (let i = 0; i < 50; i++) {
-        let randomMessage = {
-          subject: subjects[subjectNum],
-          body: messages[messageNum],
-          senderId: sender,
-          recipientId: recipient,
-        };
-        messageSeeds.push(randomMessage);
-      }
+      // for (let i = 0; i < 25; i++) {
+      //   let randomMessage = {
+      //     subject: subjects[subjectNum],
+      //     body: messages[messageNum],
+      //     senderId: 1,
+      //     recipientId: recipient,
+      //   };
+      //   messageSeeds.push(randomMessage);
+      // }
       return messageSeeds;
     };
 
