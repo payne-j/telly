@@ -18,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      firstName: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+      },
+      lastName: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -25,7 +33,15 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 256],
         },
       },
-      hashedPassword: {
+      phone: {
+        type: DataTypes.STRING(22),
+        allowNull: false,
+        unique: true,
+      },
+      profileImage: {
+        type: DataTypes.STRING(100),
+      },
+      passwordHash: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -36,12 +52,20 @@ module.exports = (sequelize, DataTypes) => {
     {
       defaultScope: {
         attributes: {
-          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],
+          exclude: [
+            "passwordHash",
+            "firstName",
+            "lastName",
+            "email",
+            "phone",
+            "createdAt",
+            "updatedAt",
+          ],
         },
       },
       scopes: {
         currentUser: {
-          attributes: { exclude: ["hashedPassword"] },
+          attributes: { exclude: ["passwordHash"] },
         },
         loginUser: {
           attributes: {},
@@ -56,7 +80,7 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.prototype.validatePassword = function (password) {
-    return bcrypt.compareSync(password, this.hashedPassword.toString());
+    return bcrypt.compareSync(password, this.passwordHash.toString());
   };
 
   User.getCurrentUserById = async function (id) {
@@ -79,17 +103,21 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.signup = async function ({ username, email, password }) {
-    const hashedPassword = bcrypt.hashSync(password);
+    const passwordHash = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       email,
-      hashedPassword,
+      passwordHash,
     });
     return await User.scope("currentUser").findByPk(user.id);
   };
 
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Booking, { foreignKey: "userId" });
+    User.hasMany(models.Review, { foreignKey: "userId" });
+    User.hasMany(models.Message, { foreignKey: "senderId" });
+    User.hasMany(models.Message, { foreignKey: "recipientId" });
+    User.hasMany(models.Telly, { foreignKey: "hostId" });
   };
   return User;
 };
