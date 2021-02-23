@@ -10,11 +10,11 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(25),
+        type: Sequelize.STRING(100),
       },
       type: {
         allowNull: false,
-        type: Sequelize.STRING(25),
+        type: Sequelize.STRING(100),
       },
       totalBedrooms: {
         allowNull: false,
@@ -34,15 +34,15 @@ module.exports = {
       },
       city: {
         allowNull: false,
-        type: Sequelize.STRING(25),
+        type: Sequelize.STRING(50),
       },
       zip: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       state: {
         allowNull: false,
-        type: Sequelize.STRING(15),
+        type: Sequelize.STRING(50),
       },
       description: {
         allowNull: false,

@@ -36,29 +36,29 @@ module.exports = {
       "Hotel was comfy, clean and cute. We very much enjoyed our time there! Friendly staff topped it off!",
       "Great location, close to everything. Starbucks on-site. Just right beside subway station.",
       "Service not bad. Bathroom is a bit small and the shampoo bottle was empty and wasn't refilled during our stay.",
-    ]
+    ];
 
     const reviews = () => {
-
       const reviewSeeds = [
         {
           bookingId: 3,
           rating: 5,
-          comment: "Stayed here for my birthday last year and I’d definitely say this is a hidden gem",
+          comment:
+            "Stayed here for my birthday last year and I’d definitely say this is a hidden gem",
           userId: 1,
         },
-
-      ],
-      for (let i = 0; i < 50; i++) {
-        let randomReview = {
-          bookingId: bookingId,
-          rating: rating,
-          comment: comments[commentNum],
-        };
-        reviewSeeds.push(randomReview);
-      }
+      ];
+      // for (let i = 0; i < 5; i++) {
+      //   let randomReview = {
+      //     userId: 1,
+      //     bookingId: bookingId,
+      //     rating: rating,
+      //     comment: comments[commentNum],
+      //   };
+      //   reviewSeeds.push(randomReview);
+      // }
       return reviewSeeds;
-    }
+    };
     return queryInterface.bulkInsert("Reviews", reviews(), {});
   },
 

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       occupancy: DataTypes.INTEGER,
       streetAddress: DataTypes.STRING,
       city: DataTypes.STRING,
-      zip: DataTypes.INTEGER,
+      zip: DataTypes.STRING,
       state: DataTypes.STRING,
       description: DataTypes.TEXT,
       available: DataTypes.BOOLEAN,
@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   Telly.associate = function (models) {
     Telly.hasMany(models.Booking, { foreignKey: "tellyId" });
     Telly.hasMany(models.Photo, { foreignKey: "tellyId" });
+    Telly.belongsTo(models.User, { foreignKey: "hostId" });
   };
   return Telly;
 };
