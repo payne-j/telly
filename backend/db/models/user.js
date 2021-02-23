@@ -18,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      firstName: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+      },
+      lastName: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -25,7 +33,15 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 256],
         },
       },
-      hashedPassword: {
+      phone: {
+        type: DataTypes.STRING(22),
+        allowNull: false,
+        unique: true,
+      },
+      profileImage: {
+        type: DataTypes.STRING(100),
+      },
+      passwordHash: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -36,7 +52,15 @@ module.exports = (sequelize, DataTypes) => {
     {
       defaultScope: {
         attributes: {
-          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],
+          exclude: [
+            "passwordHash",
+            "firstName",
+            "lastName",
+            "email",
+            "phone",
+            "createdAt",
+            "updatedAt",
+          ],
         },
       },
       scopes: {
@@ -89,7 +113,10 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Booking, { foreignKey: "userId" });
+    User.hasMany(models.Review, { foreignKey: "userId" });
+    User.hasMany(models.Message, { foreignKey: "senderId" });
+    User.hasMany(models.Message, { foreignKey: "recipientId" });
   };
   return User;
 };
