@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf";
-
 const GET_LOCATION = "search/getLocation";
 
 const getLocation = (location) => {
@@ -10,10 +8,11 @@ const getLocation = (location) => {
 };
 
 export const autocomplete = (location) => async (dispatch) => {
-  const response = await csrfFetch(`/api/search/`);
+  if (!location) return;
+  const response = await fetch(`/api/search/${location}`);
   const data = await response.json();
   dispatch(getLocation(data.location));
-  return response;
+  return data.location;
 };
 
 const initialState = { location: null };

@@ -6,31 +6,32 @@ const { Op } = require("sequelize");
 const { Telly } = require("../../db/models");
 
 router.get(
-  "/",
+  "/:location",
   asyncHandler(async (req, res) => {
+    const location = req.params.location;
     const results = await Telly.findAll({
       where: {
-        name: {
-          [Op.like]: `%${req}%`,
-        },
-        streetAddress: {
-          [Op.like]: `%${req.body}%`,
-        },
-        city: {
-          [Op.like]: `%${req.body}%`,
-        },
-        zip: {
-          [Op.like]: `%${req.body}%`,
-        },
-        state: {
-          [Op.like]: `%${req.body}%`,
+        [Op.or]: {
+          name: {
+            [Op.substring]: `%${location}%`,
+          },
+          streetAddress: {
+            [Op.substring]: `%${location}%`,
+          },
+          city: {
+            [Op.substring]: `%${location}%`,
+          },
+          zip: {
+            [Op.substring]: `%${location}%`,
+          },
+          state: {
+            [Op.substring]: `%${location}%`,
+          },
         },
       },
     });
-    res.json({ locations: req.body.location });
+    res.json({ location: results });
   })
 );
-
-
 
 module.exports = router;

@@ -11,7 +11,6 @@ function Search() {
   const [endDate, setEndDate] = useState();
   const [guests, setGuests] = useState();
   const [errors, setErrors] = useState([]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // return dispatch(
