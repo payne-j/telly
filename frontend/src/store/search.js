@@ -1,49 +1,29 @@
 import { csrfFetch } from "./csrf";
 
-const SET_LOCATION = "search/setLocation";
-const REMOVE_LOCATION = "search/removeLocation";
+const GET_LOCATION = "search/getLocation";
 
-const setLocation = (location) => {
+const getLocation = (location) => {
   return {
-    type: SET_LOCATION,
+    type: GET_LOCATION,
     payload: location,
   };
 };
-const removeLocation = () => {
-  return {
-    type: REMOVE_LOCATION,
-  };
-};
 
-export const search = ({ location }) => async (dispatch) => {
-  console.log({ location });
+export const autocomplete = (location) => async (dispatch) => {
   const response = await csrfFetch(`/api/search/`);
   const data = await response.json();
-  console.log(data);
-  dispatch(setLocation(data.location));
+  dispatch(getLocation(data.location));
   return response;
 };
 
-export const logout = () => async (dispatch) => {
-  const response = await csrfFetch(`/api/search`, {
-    method: "DELETE",
-  });
-  dispatch(removeLocation());
-  return response;
-};
-
-const initialState = { user: null };
+const initialState = { location: null };
 
 const searchReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case SET_LOCATION:
+    case GET_LOCATION:
       newState = Object.assign({}, state);
-      newState.user = action.payload;
-      return newState;
-    case REMOVE_LOCATION:
-      newState = Object.assign({}, state);
-      newState.user = null;
+      newState.location = action.payload;
       return newState;
     default:
       return state;

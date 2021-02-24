@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as searchActions from "../../store/search";
 import "./Search.css";
@@ -22,17 +22,16 @@ function Search() {
     // });
   };
 
-  const autofill = (e) => {
-    setLocation(e.target.value);
-    return dispatch(searchActions.search({ location }));
-  };
+  useEffect(() => {
+    dispatch(searchActions.autocomplete(location));
+  }, [location, dispatch]);
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <input
         value={location}
         placeholder="Location"
-        onChange={(e) => autofill(e)}
+        onChange={(e) => setLocation(e.target.value)}
       ></input>
       <input
         type="date"
