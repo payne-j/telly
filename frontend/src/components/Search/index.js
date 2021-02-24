@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import * as sessionActions from "../../store/session";
+import * as searchActions from "../../store/search";
 import "./Search.css";
 
 function Search() {
@@ -15,21 +15,25 @@ function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // return dispatch(
-    //   sessionActions.search({ location, startDate, endDate, guests })
+    //   searchActions.search({ location, startDate, endDate, guests })
     // ).catch(async (res) => {
     //   const data = await res.json();
     //   if (data && data.errors) setErrors(data.errors);
     // });
   };
 
-
+  const autofill = (e) => {
+    setLocation(e.target.value);
+    console.log(location);
+    return dispatch(searchActions.search({ location }));
+  };
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <input
         value={location}
         placeholder="Location"
-        onChange={(e) => setLocation(e.target.value)}
+        onChange={(e) => autofill(e)}
       ></input>
       <input
         type="date"

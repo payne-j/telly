@@ -271,7 +271,7 @@ function HomePage() {
         </svg>
       </div>
       <div className="div-line"></div>
-      <div className="nearby-rentals">Nearby Rentals</div>
+      <div className="discover">Discover</div>
       <div className="div-line"></div>
       <div className="meet-our-hosts">Meet Our Hosts</div>
     </>
