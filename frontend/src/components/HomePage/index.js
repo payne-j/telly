@@ -1,3 +1,5 @@
+import Discover from "./Discover";
+import Hosts from "./Hosts";
 import "./HomePage.css";
 
 function HomePage() {
@@ -272,8 +274,14 @@ function HomePage() {
       </div>
       <div className="div-line"></div>
       <div className="discover">Discover</div>
+      <div>
+        <Discover />
+      </div>
       <div className="div-line"></div>
       <div className="meet-our-hosts">Meet Our Hosts</div>
+      <div className="host-container">
+        <Hosts />
+      </div>
     </>
   );
 }

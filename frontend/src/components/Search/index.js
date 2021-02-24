@@ -24,7 +24,6 @@ function Search() {
 
   const autofill = (e) => {
     setLocation(e.target.value);
-    console.log(location);
     return dispatch(searchActions.search({ location }));
   };
 

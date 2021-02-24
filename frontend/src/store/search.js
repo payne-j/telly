@@ -15,9 +15,9 @@ const removeLocation = () => {
   };
 };
 
-export const search = (location) => async (dispatch) => {
-  console.log(location);
-  const response = await csrfFetch("/api/search");
+export const search = ({ location }) => async (dispatch) => {
+  console.log({ location });
+  const response = await csrfFetch(`/api/search/`);
   const data = await response.json();
   console.log(data);
   dispatch(setLocation(data.location));
@@ -25,7 +25,7 @@ export const search = (location) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  const response = await csrfFetch("/api/search", {
+  const response = await csrfFetch(`/api/search`, {
     method: "DELETE",
   });
   dispatch(removeLocation());
