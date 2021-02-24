@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as searchActions from "../../store/search";
 import "./Search.css";
 
 function Search() {
   const dispatch = useDispatch();
+  const suggestions = useSelector(searchActions.autocomplete);
 
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState();
@@ -22,16 +23,30 @@ function Search() {
   };
 
   useEffect(() => {
-    dispatch(searchActions.autocomplete(location));
+    dispatch(searchActions.search(location));
   }, [location, dispatch]);
-
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       <input
+        type="text"
         value={location}
         placeholder="Location"
         onChange={(e) => setLocation(e.target.value)}
-      ></input>
+        list="autocomplete"
+      />
+      <datalist className="suggestion-list" id="autocomplete">
+        {suggestions &&
+          suggestions.map((suggestion) => (
+            <option
+              className="suggestions"
+              id={suggestion.id}
+              value={suggestion.name}
+              key={suggestion.id}
+            >
+              {suggestion.name}
+            </option>
+          ))}
+      </datalist>
       <input
         type="date"
         value={startDate}

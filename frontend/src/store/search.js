@@ -7,13 +7,15 @@ const getLocation = (location) => {
   };
 };
 
-export const autocomplete = (location) => async (dispatch) => {
+export const search = (location) => async (dispatch) => {
   if (!location) return;
   const response = await fetch(`/api/search/${location}`);
   const data = await response.json();
   dispatch(getLocation(data.location));
   return data.location;
 };
+
+export const autocomplete = (session) => session.search.location;
 
 const initialState = { location: null };
 
