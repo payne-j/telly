@@ -7,10 +7,16 @@ function Search() {
   const dispatch = useDispatch();
   const suggestions = useSelector(searchActions.autocomplete);
 
+  let tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow = tomorrow.toISOString().split("T")[0];
+
   const [location, setLocation] = useState("");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [guests, setGuests] = useState();
+  const [startDate, setStartDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
+  const [endDate, setEndDate] = useState(tomorrow);
+  const [guests, setGuests] = useState(1);
   const [errors, setErrors] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
