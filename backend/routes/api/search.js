@@ -1,15 +1,34 @@
 const express = require("express");
+const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const { requireAuth } = require("../../utils/auth");
-const router = express.Router();
+const { Op } = require("sequelize");
+const { Telly } = require("../../db/models");
 
-router.get("/", (req, res) => {
-  const { location } = req;
-  if (location) {
-    return res.json({
-      location,
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const results = await Telly.findAll({
+      where: {
+        name: {
+          [Op.like]: `%${req}%`,
+        },
+        streetAddress: {
+          [Op.like]: `%${req.body}%`,
+        },
+        city: {
+          [Op.like]: `%${req.body}%`,
+        },
+        zip: {
+          [Op.like]: `%${req.body}%`,
+        },
+        state: {
+          [Op.like]: `%${req.body}%`,
+        },
+      },
     });
-  } else return res.json({});
-});
+    res.json({ locations: req.body.location });
+  })
+);
 
 module.exports = router;
