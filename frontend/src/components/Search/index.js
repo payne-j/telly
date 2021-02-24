@@ -39,12 +39,41 @@ function Search() {
           suggestions.map((suggestion) => (
             <option
               className="suggestions"
-              id={suggestion.id}
+              value={suggestion.streetAddress}
+              key={suggestion.id}
+            ></option>
+          ))}
+        {suggestions &&
+          suggestions.map((suggestion) => (
+            <option
+              className="suggestions"
+              value={suggestion.city}
+              key={suggestion.id}
+            ></option>
+          ))}
+        {suggestions &&
+          suggestions.map((suggestion) => (
+            <option
+              className="suggestions"
+              value={suggestion.zip}
+              key={suggestion.id}
+            ></option>
+          ))}
+        {suggestions &&
+          suggestions.map((suggestion) => (
+            <option
+              className="suggestions"
+              value={suggestion.state}
+              key={suggestion.id}
+            ></option>
+          ))}
+        {suggestions &&
+          suggestions.map((suggestion) => (
+            <option
+              className="suggestions"
               value={suggestion.name}
               key={suggestion.id}
-            >
-              {suggestion.name}
-            </option>
+            ></option>
           ))}
       </datalist>
       <input

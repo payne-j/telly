@@ -13,19 +13,19 @@ router.get(
       where: {
         [Op.or]: {
           name: {
-            [Op.substring]: `%${location}%`,
+            [Op.iLike]: `%${location}%`,
           },
           streetAddress: {
-            [Op.substring]: `%${location}%`,
+            [Op.iLike]: `%${location}%`,
           },
           city: {
-            [Op.substring]: `%${location}%`,
+            [Op.iLike]: `%${location}%`,
           },
           zip: {
-            [Op.substring]: `%${location}%`,
+            [Op.iLike]: `%${location}%`,
           },
           state: {
-            [Op.substring]: `%${location}%`,
+            [Op.iLike]: `%${location}%`,
           },
         },
       },
