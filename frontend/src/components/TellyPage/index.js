@@ -23,6 +23,7 @@ function TellyPage() {
           <span id="photo-1"></span>
           <span id="photo-2"></span>
           <span id="photo-3"></span>
+          <span id="photo-4"></span>
           <div className="photo-container">
             {telly?.id?.Photos &&
               telly?.id?.Photos.map((photo) => (
@@ -42,6 +43,13 @@ function TellyPage() {
             <a href="#photo-4"></a>
           </div>
         </div>
+      </div>
+      <div className="telly-host">{telly?.id?.User?.username}</div>
+      <div>
+        <image
+          src={`${telly?.id?.User.profileImage}`}
+          className="telly-host-image"
+        />
       </div>
     </>
   );
