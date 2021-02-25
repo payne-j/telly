@@ -3,8 +3,9 @@ const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const { requireAuth } = require("../../utils/auth");
 const { Op } = require("sequelize");
-const { Telly } = require("../../db/models");
+const { Telly, User, Review, Photo } = require("../../db/models");
 
+//autofill query for searchbar
 router.get(
   "/:location",
   asyncHandler(async (req, res) => {
@@ -33,6 +34,8 @@ router.get(
     res.json({ location: results });
   })
 );
+
+//Query for single telly
 router.get(
   "/tellies/:id",
   asyncHandler(async (req, res) => {
@@ -41,12 +44,14 @@ router.get(
       where: {
         id,
       },
+      include: [User, Photo],
     });
-    res.json({ location: results });
+    res.json({ id: results });
   })
 );
+//Query for location list match from search
 router.get(
-  "/:location#:startDate#:endDate#:guests",
+  "/:location/:startDate/:endDate/:guests",
   asyncHandler(async (req, res) => {
     const location = req.params.location;
     const results = await Telly.findAll({

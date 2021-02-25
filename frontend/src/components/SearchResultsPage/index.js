@@ -10,7 +10,6 @@ function SearchResults() {
   const results = useSelector(searchActions.searchResults);
   const { id, setId } = useSearch();
 
-  // useEffect(() => dispatch(searchActions.tellyPage(id)), [id, dispatch]);
 
   return (
     <>
