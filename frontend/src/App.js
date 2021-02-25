@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import PageNotFound from "./components/PageNotFound";
 import Search from "./components/Search";
 import SearchResults from "./components/SearchResultsPage";
+import TellyPage from "./components/TellyPage";
 import { useSearch } from "./context/Search";
 import * as sessionActions from "./store/session";
 
@@ -16,7 +17,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const { location, startDate, endDate, guests } = useSearch();
+  const { location, startDate, endDate, guests, id } = useSearch();
 
   return (
     <>
@@ -31,6 +32,9 @@ function App() {
           exact
         >
           <SearchResults />
+        </Route>
+        <Route path={`/search/tellies/${id}`} exact>
+          <TellyPage />
         </Route>
         <Route>
           <PageNotFound />

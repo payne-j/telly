@@ -1,0 +1,16 @@
+.search-result {
+  list-style: none;
+  padding: 15px;
+  font-weight: bolder;
+}
+
+.search-description {
+  font-size: 10px;
+  font-style: oblique;
+  padding: 5px;
+}
+
+.search-link {
+  text-decoration: none;
+  color: rgb(165, 165, 141);
+}

@@ -31,10 +31,6 @@ function Search() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       },
-      console.log(
-        "HISTORY:",
-        `/search/${location}#${startDate}#${endDate}#${guests}`
-      ),
       history.push(`/search/${location}/${startDate}/${endDate}/${guests}`)
     );
   };

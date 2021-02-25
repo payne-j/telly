@@ -15,6 +15,14 @@ export const search = (location) => async (dispatch) => {
   return data.location;
 };
 
+export const tellyPage = (id) => async (dispatch) => {
+  const response = await fetch(`/api/search/tellies/${id}`);
+  console.log(response);
+  const data = await response.json();
+  dispatch(getLocation(data.id));
+  return data.id;
+};
+
 export const availability = (location, startDate, endDate, guests) => async (
   dispatch
 ) => {

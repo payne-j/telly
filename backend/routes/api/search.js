@@ -34,6 +34,18 @@ router.get(
   })
 );
 router.get(
+  "/tellies/:id",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const results = await Telly.findOne({
+      where: {
+        id,
+      },
+    });
+    res.json({ location: results });
+  })
+);
+router.get(
   "/:location#:startDate#:endDate#:guests",
   asyncHandler(async (req, res) => {
     const location = req.params.location;
@@ -58,6 +70,7 @@ router.get(
         },
       },
     });
+
     res.json({ location: results });
   })
 );
