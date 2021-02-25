@@ -81,3 +81,14 @@
 .button:active {
   background-color: rgba(203, 153, 126, 0.8);
 }
+
+.telly-host-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+.telly-host {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}

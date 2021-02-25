@@ -1,16 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as searchActions from "../../store/search";
 import { useSearch } from "../../context/Search";
 import "./TellyPage.css";
 
 function TellyPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const { startDate, endDate } = useSearch();
   const { id } = useSearch();
   useEffect(() => dispatch(searchActions.tellyPage(id)), [id, dispatch]);
   const telly = useSelector(searchActions.resultId);
-  console.log("TELLY:", telly);
+
+  const oneDay = 24 * 60 * 60 * 1000;
+  const firstDate = new Date(startDate);
+  const secondDate = new Date(endDate);
+
+  const lengthOfStay = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    history.push("/");
+  };
+  // // const total = telly.id.price *
 
   return (
     <>
@@ -28,6 +41,7 @@ function TellyPage() {
             {telly?.id?.Photos &&
               telly?.id?.Photos.map((photo) => (
                 <img
+                  key={photo.id}
                   className="photo"
                   width="400"
                   height="300"
@@ -46,10 +60,19 @@ function TellyPage() {
       </div>
       <div className="telly-host">{telly?.id?.User?.username}</div>
       <div>
-        <image
+        <img
+          alt="host-profile"
           src={`${telly?.id?.User.profileImage}`}
           className="telly-host-image"
         />
+      </div>
+      <div>${telly?.id?.price} / night</div>
+      <div>
+        Book this Telly for {lengthOfStay} nights at $
+        {telly?.id?.price * lengthOfStay}
+        <form onSubmit={handleSubmit}>
+          <button type="submit">Reserve</button>
+        </form>
       </div>
     </>
   );
