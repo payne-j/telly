@@ -1,0 +1,74 @@
+.telly-name {
+  padding: 5px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.location {
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.photo-slideshow {
+  padding: 10px;
+}
+
+.slider {
+  width: 500px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.photo-container {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 1500px;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 300px;
+  clear: both;
+  position: relative;
+  -webkit-transition: left 2s;
+  -moz-transition: left 2s;
+  -o-transition: left 2s;
+  transition: left 2s;
+}
+.photo {
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  border-radius: 10px;
+}
+#photo-1:target ~ .photo-container {
+  left: 0px;
+}
+#photo-2:target ~ .photo-container {
+  left: -500px;
+}
+#photo-3:target ~ .photo-container {
+  left: -1000px;
+}
+.buttons {
+  position: relative;
+  top: -20px;
+}
+.buttons a {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button:active {
+  background-color: rgba(203, 153, 126, 0.7);
+}
+
+.button{
+  background-color: aliceblue;
+}

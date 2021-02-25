@@ -10,19 +10,45 @@ function TellyPage() {
   const { id } = useSearch();
   useEffect(() => dispatch(searchActions.tellyPage(id)), [id, dispatch]);
   const telly = useSelector(searchActions.resultId);
-  console.log("TELLY:", telly);
+
   return (
     <>
-      TELLY PAGE
-      <div>{telly?.id?.name}</div>
-      <div>
+      <div className="telly-name">{telly?.id?.name}</div>
+      <div className="location">
         {telly?.id?.city}, {telly?.id?.state}
       </div>
-      <div>
-        {telly?.id?.Photos &&
-          telly?.id?.Photos.map((photo) => (
-            <img alt="" src={`${photo?.imageUrl}`} />
-          ))}
+      <div className="photo-slideshow">
+        <div className="slider">
+          <span id="photo-1"></span>
+          <span id="photo-2"></span>
+          <span id="photo-3"></span>
+          <div className="photo-container">
+            {telly?.id?.Photos &&
+              telly?.id?.Photos.map((photo) => (
+                <img
+                  className="photo"
+                  width="400"
+                  height="300"
+                  alt=""
+                  src={`${photo?.imageUrl}`}
+                />
+              ))}
+          </div>
+          <div className="buttons">
+            <a href="#photo-1">
+              <i className="button" className="fas fa-arrow-left"></i>
+            </a>
+            <a href="#photo-2">
+              <i className="button" className="fas fa-arrow-left"></i>
+            </a>
+            <a href="#photo-3">
+              <i className="button" className="fas fa-arrow-right"></i>
+            </a>
+            <a href="#photo-4">
+              <i className="button" className="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </>
   );
