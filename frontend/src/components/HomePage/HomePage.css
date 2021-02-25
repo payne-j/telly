@@ -13,10 +13,27 @@
   border-bottom: 2px solid black;
 }
 
-.nearby-rentals {
+.discover {
   height: 100px;
 }
 
 .meet-our-hosts {
   height: 100px;
+}
+
+.hosts,
+.discoveries {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0px;
+}
+
+.host,
+.discovery {
+  list-style-type: none;
+  box-sizing: border-box;
+  padding: 30px;
+  border: 2px solid black;
 }

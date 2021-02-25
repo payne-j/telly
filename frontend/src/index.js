@@ -8,6 +8,7 @@ import "./index.css";
 import App from "./App";
 import * as sessionActions from "./store/session";
 import { ModalProvider } from "./context/Modal";
+import SearchProvider from "./context/Search";
 
 const store = configureStore();
 
@@ -23,9 +24,11 @@ function Root() {
   return (
     <Provider store={store}>
       <ModalProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <SearchProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </SearchProvider>
       </ModalProvider>
     </Provider>
   );
