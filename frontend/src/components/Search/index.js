@@ -26,10 +26,17 @@ function Search() {
     e.preventDefault();
     return dispatch(
       searchActions.availability(location, startDate, endDate, guests)
-    ).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    }, history.push(`/search/${location}#${startDate}#${endDate}#${guests}`));
+    ).catch(
+      async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      },
+      console.log(
+        "HISTORY:",
+        `/search/${location}#${startDate}#${endDate}#${guests}`
+      ),
+      history.push(`/search/${location}/${startDate}/${endDate}/${guests}`)
+    );
   };
 
   useEffect(() => {

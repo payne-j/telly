@@ -34,7 +34,7 @@ router.get(
   })
 );
 router.get(
-  "/api/search/:location#:startDate#:endDate#:guests}`",
+  "/:location#:startDate#:endDate#:guests",
   asyncHandler(async (req, res) => {
     const location = req.params.location;
     const results = await Telly.findAll({

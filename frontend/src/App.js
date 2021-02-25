@@ -26,10 +26,11 @@ function App() {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/" exact>
-          <SearchResults
-            path={`/search/${location}#${startDate}#${endDate}#${guests}`}
-          />
+        <Route
+          path={`/search/${location}/${startDate}/${endDate}/${guests}`}
+          exact
+        >
+          <SearchResults />
         </Route>
         <Route>
           <PageNotFound />
