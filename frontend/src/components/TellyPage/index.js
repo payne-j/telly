@@ -10,6 +10,7 @@ function TellyPage() {
   const { id } = useSearch();
   useEffect(() => dispatch(searchActions.tellyPage(id)), [id, dispatch]);
   const telly = useSelector(searchActions.resultId);
+  console.log("TELLY:", telly);
 
   return (
     <>
@@ -35,18 +36,10 @@ function TellyPage() {
               ))}
           </div>
           <div className="buttons">
-            <a href="#photo-1">
-              <i className="button" className="fas fa-arrow-left"></i>
-            </a>
-            <a href="#photo-2">
-              <i className="button" className="fas fa-arrow-left"></i>
-            </a>
-            <a href="#photo-3">
-              <i className="button" className="fas fa-arrow-right"></i>
-            </a>
-            <a href="#photo-4">
-              <i className="button" className="fas fa-arrow-right"></i>
-            </a>
+            <a href="#photo-1"></a>
+            <a href="#photo-2"></a>
+            <a href="#photo-3"></a>
+            <a href="#photo-4"></a>
           </div>
         </div>
       </div>

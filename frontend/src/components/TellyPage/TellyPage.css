@@ -1,20 +1,25 @@
 .telly-name {
-  padding: 5px;
+  padding-top: 40px;
   font-size: 25px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 .location {
   padding: 5px;
   font-size: 15px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
 
 .photo-slideshow {
-  padding: 10px;
+  padding-top: 40px;
+  width: auto;
 }
 
 .slider {
-  width: 500px;
+  width: auto;
   height: 300px;
   background-color: rgba(0, 0, 0, 0.2);
   margin-left: auto;
@@ -56,19 +61,20 @@
 .buttons {
   position: relative;
   top: -20px;
+  outline: black;
+}
+.buttons a:hover {
+  background-color: rgba(237, 220, 210, 0.7);
 }
 .buttons a {
   display: inline-block;
   height: 15px;
   width: 15px;
   border: 50px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 
 .button:active {
   background-color: rgba(203, 153, 126, 0.7);
-}
-
-.button{
-  background-color: aliceblue;
 }
