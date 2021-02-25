@@ -24,8 +24,8 @@ export const search = (location) => async (dispatch) => {
 
 export const tellyPage = (id) => async (dispatch) => {
   const response = await fetch(`/api/search/tellies/${id}`);
-  console.log("THUNK:", response);
   const data = await response.json();
+  console.log("DATA:", data);
   dispatch(getId(data.id));
   return data.id;
 };
@@ -42,8 +42,7 @@ export const availability = (location, startDate, endDate, guests) => async (
 };
 
 export const searchResults = (session) => session.search.location;
-export const resultId = (session) => session.search.id;
-
+export const resultId = (session) => session.search;
 const initialState = { location: null };
 
 const searchReducer = (state = initialState, action) => {
