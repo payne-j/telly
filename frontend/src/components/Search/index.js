@@ -1,31 +1,35 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useSearch } from "../../context/Search";
 import * as searchActions from "../../store/search";
 import "./Search.css";
 
 function Search() {
   const dispatch = useDispatch();
-  const suggestions = useSelector(searchActions.autocomplete);
+  const history = useHistory();
+  const suggestions = useSelector(searchActions.searchResults);
+  const {
+    location,
+    setLocation,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+    guests,
+    setGuests,
+  } = useSearch();
 
-  let tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  tomorrow = tomorrow.toISOString().split("T")[0];
-
-  const [location, setLocation] = useState("");
-  const [startDate, setStartDate] = useState(
-    new Date().toISOString().split("T")[0]
-  );
-  const [endDate, setEndDate] = useState(tomorrow);
-  const [guests, setGuests] = useState(1);
   const [errors, setErrors] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // return dispatch(
-    //   searchActions.search({ location, startDate, endDate, guests })
-    // ).catch(async (res) => {
-    //   const data = await res.json();
-    //   if (data && data.errors) setErrors(data.errors);
-    // });
+    return dispatch(
+      searchActions.availability(location, startDate, endDate, guests)
+    ).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    }, history.push(`/search/${location}#${startDate}#${endDate}#${guests}`));
   };
 
   useEffect(() => {

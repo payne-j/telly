@@ -15,7 +15,18 @@ export const search = (location) => async (dispatch) => {
   return data.location;
 };
 
-export const autocomplete = (session) => session.search.location;
+export const availability = (location, startDate, endDate, guests) => async (
+  dispatch
+) => {
+  const response = await fetch(
+    `/api/search/${location}#${startDate}#${endDate}#${guests}`
+  );
+  const data = await response.json();
+  dispatch(getLocation(data.location));
+  return data.location;
+};
+
+export const searchResults = (session) => session.search.location;
 
 const initialState = { location: null };
 

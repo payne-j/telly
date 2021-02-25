@@ -5,6 +5,8 @@ import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import PageNotFound from "./components/PageNotFound";
 import Search from "./components/Search";
+import SearchResults from "./components/SearchResultsPage";
+import { useSearch } from "./context/Search";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  const { location, startDate, endDate, guests } = useSearch();
+
   return (
     <>
       <Navigation isLoaded={isLoaded} />
@@ -21,6 +25,11 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <HomePage />
+        </Route>
+        <Route path="/" exact>
+          <SearchResults
+            path={`/search/${location}#${startDate}#${endDate}#${guests}`}
+          />
         </Route>
         <Route>
           <PageNotFound />
