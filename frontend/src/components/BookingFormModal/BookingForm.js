@@ -7,7 +7,7 @@ import "./BookingForm.css";
 
 function BookingForm() {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.session.user);
+  const userId = useSelector((state) => state.session.user.id);
   const {
     setLocation,
     startDate,
@@ -18,15 +18,10 @@ function BookingForm() {
     length,
   } = useSearch();
 
-  const [errors, setErrors] = useState([]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors([]);
-    console.log("Submit:");
-
-    return dispatch(
-      bookingActions.createBooking({ userId, tellyId, startDate, endDate, total })
+    dispatch(
+      bookingActions.makeBooking(userId, tellyId, startDate, endDate, total)
     );
   };
 
@@ -70,6 +65,7 @@ function BookingForm() {
           <div>
             ${telly?.tellyId?.price} X {length} night(s) | Total: ${total}
           </div>
+          <div>number of guests: {guests}</div>
           <div></div>
           <button className="modal-btn" type="submit">
             Book now

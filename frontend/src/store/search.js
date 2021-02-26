@@ -33,7 +33,7 @@ export const availability = (location, startDate, endDate, guests) => async (
   dispatch
 ) => {
   const response = await fetch(
-    `/api/search/${location}#${startDate}#${endDate}#${guests}`
+    `/api/search/${location}/${startDate}/${endDate}/${guests}`
   );
   const data = await response.json();
   dispatch(getLocation(data.location));
