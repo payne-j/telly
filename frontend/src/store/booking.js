@@ -1,33 +1,51 @@
+import { csrfFetch } from "./csrf";
 const CREATE_BOOKING = "booking/createBooking";
 const CANCEL_BOOKING = "booking/cancelBooking";
 const GET_BOOKING = "booking/getBooking";
 
-export const createBooking = (userId, id, startDate, endDate, total) => {
+const createBooking = (userId, tellyId, startDate, endDate, total) => {
   return {
     type: CREATE_BOOKING,
-    payload: { userId, id, startDate, endDate, total },
+    payload: { userId, tellyId, startDate, endDate, total },
   };
 };
-export const cancelBooking = (id) => {
+const cancelBooking = (bookingId) => {
   return {
     type: CANCEL_BOOKING,
-    payload: id,
+    payload: bookingId,
   };
 };
-export const getBooking = (id) => {
+const getBooking = (bookingId) => {
   return {
     type: GET_BOOKING,
-    payload: id,
+    payload: bookingId,
   };
 };
 
-// export const search = (if) => async (dispatch) => {
-//   if (!location) return;
-//   const response = await fetch(`/api/search/${location}`);
-//   const data = await response.json();
-//   dispatch(getLocation(data.location));
-//   return data.location;
-// };
+export const makeBooking = (
+  userId,
+  tellyId,
+  startDate,
+  endDate,
+  total
+) => async (dispatch) => {
+  const response = await csrfFetch(`/api/bookings/create`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userId,
+      tellyId,
+      startDate,
+      endDate,
+      total,
+    }),
+  });
+  const data = await response.json();
+  dispatch(createBooking(data.booking));
+  return data.booking;
+};
 
 // export const searchResults = (session) => session.search.location;
 // export const resultId = (session) => session.search;

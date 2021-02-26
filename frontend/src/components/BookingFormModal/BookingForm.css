@@ -11,3 +11,27 @@
 .host-div {
   align-items: center;
 }
+
+
+.booking-btn {
+  display: inline-block;
+  border: 0.16em solid #ffffff;
+  color: black;
+  text-align: center;
+  transition: all 0.15s;
+  border-radius: 10px;
+  max-height: 25px;
+  min-width: 80px;
+  background-color: rgba(221, 190, 169, 0.3);
+  cursor: pointer;
+}
+
+.booking-btn:hover {
+  color: black;
+  border-color: rgba(165, 165, 141, 0.2);
+  background-color: rgba(221, 190, 169, 0.5);
+}
+.booking-btn:active {
+  color: #bbbbbb;
+  border-color: #bbbbbb;
+}

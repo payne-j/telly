@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as searchActions from "../../store/search";
@@ -6,23 +7,22 @@ import "./SearchResults.css";
 
 function SearchResults() {
   const results = useSelector(searchActions.searchResults);
-  const { id, setId, setLocation } = useSearch();
-
+  const { tellyId, setTellyId } = useSearch();
   return (
     <>
       <div>Search Results</div>
       <div>
         <ul>
-          {results.map((result) => (
-            <li className="search-result" key={result?.id}>
+          {results.map((result, idx) => (
+            <li className="search-result" key={result?.tellyId + idx}>
               <div className="search-description">
                 {result?.type} in {result?.city}{" "}
               </div>
               <div className="search-name">
                 <Link
                   className="search-link"
-                  onClick={(setId(result?.id))}
-                  to={`/search/tellies/${id}`}
+                  onClick={setTellyId(result?.id)}
+                  to={`/search/tellies/${tellyId}`}
                 >
                   {result.name}
                   {/* //TODO: add photo query */}

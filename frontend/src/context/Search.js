@@ -14,7 +14,7 @@ export default function SearchProvider({ children }) {
   );
   const [endDate, setEndDate] = useState(tomorrow);
   const [guests, setGuests] = useState(1);
-  const [id, setId] = useState();
+  const [tellyId, setTellyId] = useState();
   const [total, setTotal] = useState();
   const [length, setLength] = useState();
 
@@ -29,8 +29,8 @@ export default function SearchProvider({ children }) {
         setEndDate,
         guests,
         setGuests,
-        id,
-        setId,
+        tellyId,
+        setTellyId,
         total,
         setTotal,
         length,

@@ -37,16 +37,16 @@ router.get(
 
 //Query for single telly
 router.get(
-  "/tellies/:id",
+  "/tellies/:tellyId",
   asyncHandler(async (req, res) => {
-    const id = req.params.id;
+    const tellyId = req.params.tellyId;
     const results = await Telly.findOne({
       where: {
-        id,
+        id: tellyId,
       },
       include: [User, Photo],
     });
-    res.json({ id: results });
+    res.json({ tellyId: results });
   })
 );
 //Query for location list match from search

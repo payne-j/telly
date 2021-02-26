@@ -7,10 +7,10 @@ const getLocation = (location) => {
     payload: location,
   };
 };
-const getId = (id) => {
+const getId = (tellyId) => {
   return {
     type: GET_ID,
-    payload: id,
+    payload: tellyId,
   };
 };
 
@@ -22,18 +22,18 @@ export const search = (location) => async (dispatch) => {
   return data.location;
 };
 
-export const tellyPage = (id) => async (dispatch) => {
-  const response = await fetch(`/api/search/tellies/${id}`);
+export const tellyPage = (tellyId) => async (dispatch) => {
+  const response = await fetch(`/api/search/tellies/${tellyId}`);
   const data = await response.json();
-  dispatch(getId(data.id));
-  return data.id;
+  dispatch(getId(data.tellyId));
+  return data.tellyId;
 };
 
 export const availability = (location, startDate, endDate, guests) => async (
   dispatch
 ) => {
   const response = await fetch(
-    `/api/search/${location}#${startDate}#${endDate}#${guests}`
+    `/api/search/${location}/${startDate}/${endDate}/${guests}`
   );
   const data = await response.json();
   dispatch(getLocation(data.location));
@@ -53,7 +53,7 @@ const searchReducer = (state = initialState, action) => {
       return newState;
     case GET_ID:
       newState = Object.assign({}, state);
-      newState.id = action.payload;
+      newState.tellyId = action.payload;
       return newState;
     default:
       return state;

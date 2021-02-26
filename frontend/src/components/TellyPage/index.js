@@ -12,10 +12,16 @@ function TellyPage() {
   const history = useHistory();
   const userId = useSelector((state) => state.session.user);
   const { startDate, endDate } = useSearch();
-  const { id, setLocation, total, setTotal, length, setLength } = useSearch();
-  useEffect(() => dispatch(searchActions.tellyPage(id)), [
-    id,
+  const {
+    tellyId,
     setLocation,
+    total,
+    setTotal,
+    length,
+    setLength,
+  } = useSearch();
+  useEffect(() => dispatch(searchActions.tellyPage(tellyId)), [
+    tellyId,
     dispatch,
   ]);
   const telly = useSelector(searchActions.resultId);
@@ -25,15 +31,15 @@ function TellyPage() {
   const secondDate = new Date(endDate);
   const lengthOfStay = Math.round(Math.abs((firstDate - secondDate) / oneDay));
   setLength(lengthOfStay);
-  const totalCost = telly?.id?.price * lengthOfStay;
+  const totalCost = telly?.tellyId?.price * lengthOfStay;
   setTotal(totalCost);
 
   // // const total = telly.id.price *
   return (
     <>
-      <div className="telly-name">{telly?.id?.name}</div>
+      <div className="telly-name">{telly?.tellyId?.name}</div>
       <div className="location">
-        {telly?.id?.city}, {telly?.id?.state}
+        {telly?.tellyId?.city}, {telly?.tellyId?.state}
       </div>
       <div className="photo-slideshow">
         <div className="slider">
@@ -42,10 +48,10 @@ function TellyPage() {
           <span id="photo-3"></span>
           <span id="photo-4"></span>
           <div className="photo-container">
-            {telly?.id?.Photos &&
-              telly?.id?.Photos.map((photo) => (
+            {telly?.tellyId?.Photos &&
+              telly?.tellyId?.Photos.map((photo, idx) => (
                 <img
-                  key={photo.id}
+                  key={idx}
                   className="photo"
                   width="400"
                   height="300"
@@ -63,71 +69,71 @@ function TellyPage() {
         </div>
       </div>
       <div className="telly-host">
-        {telly?.id?.occupancy} Guests · {telly?.id?.totalBedrooms} Bedrooms ·{" "}
-        {telly?.id?.totalBathrooms} Bathrooms
+        {telly?.tellyId?.occupancy} Guests · {telly?.tellyId?.totalBedrooms}{" "}
+        Bedrooms · {telly?.tellyId?.totalBathrooms} Bathrooms
         <span>
-          Hosted by {telly?.id?.User?.username}
+          Hosted by {telly?.tellyId?.User?.username}
           <img
             alt="host-profile"
-            src={`${telly?.id?.User.profileImage}`}
+            src={`${telly?.tellyId?.User.profileImage}`}
             className="telly-host-image"
           />
         </span>
       </div>
       <div className="telly-info">
-        <div className="telly-description">{telly?.id?.description}.</div>
-        <div className="telly-price">${telly?.id?.price} / night</div>
+        <div className="telly-description">{telly?.tellyId?.description}.</div>
+        <div className="telly-price">${telly?.tellyId?.price} / night</div>
         <div className="telly-amenities-container">
           Amenities
           <div className="telly-amenities">
-            {!telly?.id?.internet && (
+            {!telly?.tellyId?.internet && (
               <div>
-                <i class="fas fa-wifi"></i> wifi
+                <i className="fas fa-wifi"></i> wifi
               </div>
             )}
-            {!telly?.id?.airconditioning && (
+            {!telly?.tellyId?.airconditioning && (
               <div>
-                <i class="fas fa-wind"></i> air-conditioning
+                <i className="fas fa-wind"></i> air-conditioning
               </div>
             )}
-            {!telly?.id?.tv && (
+            {!telly?.tellyId?.tv && (
               <div>
-                <i class="fas fa-tv"></i> tv
+                <i className="fas fa-tv"></i> tv
               </div>
             )}
-            {!telly?.id?.washerDryer && (
+            {!telly?.tellyId?.washerDryer && (
               <div>
-                <i class="fas fa-wifi"></i> washer/dryer
+                <i className="fas fa-wifi"></i> washer/dryer
               </div>
             )}
-            {!telly?.id?.gym && (
+            {!telly?.tellyId?.gym && (
               <div>
-                <i class="fas fa-dumbbell"></i> gym
+                <i className="fas fa-dumbbell"></i> gym
               </div>
             )}
-            {!telly?.id?.kitchen && (
+            {!telly?.tellyId?.kitchen && (
               <div>
-                <i class="fas fa-utensils"></i> kitchen
+                <i className="fas fa-utensils"></i> kitchen
               </div>
             )}
-            {!telly?.id?.freeParking && (
+            {!telly?.tellyId?.freeParking && (
               <div>
-                <i class="fas fa-parking"></i> free parking
+                <i className="fas fa-parking"></i> free parking
               </div>
             )}
-            {!telly?.id?.essential && (
+            {!telly?.tellyId?.essential && (
               <div>
-                <i class="fas fa-hand-holding-medical"></i> essentials
+                <i className="fas fa-hand-holding-medical"></i> essentials
               </div>
             )}
-            {!telly?.id?.pool && (
+            {!telly?.tellyId?.pool && (
               <div>
-                <i class="fas fa-swimming-pool"></i> pool
+                <i className="fas fa-swimming-pool"></i> pool
               </div>
             )}
           </div>
         </div>
-        <div>
+        <div className="booking-container">
           Book this Telly for {lengthOfStay} night(s) at ${total}
           {userId ? <BookingForm /> : <LoginForm />}
         </div>
