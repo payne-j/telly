@@ -25,7 +25,6 @@ export const search = (location) => async (dispatch) => {
 export const tellyPage = (id) => async (dispatch) => {
   const response = await fetch(`/api/search/tellies/${id}`);
   const data = await response.json();
-  console.log("DATA:", data);
   dispatch(getId(data.id));
   return data.id;
 };
