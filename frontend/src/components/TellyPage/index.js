@@ -22,7 +22,6 @@ function TellyPage() {
   } = useSearch();
   useEffect(() => dispatch(searchActions.tellyPage(tellyId)), [
     tellyId,
-    setLocation,
     dispatch,
   ]);
   const telly = useSelector(searchActions.resultId);
@@ -50,9 +49,9 @@ function TellyPage() {
           <span id="photo-4"></span>
           <div className="photo-container">
             {telly?.tellyId?.Photos &&
-              telly?.tellyId?.Photos.map((photo) => (
+              telly?.tellyId?.Photos.map((photo, idx) => (
                 <img
-                  key={photo.tellyId}
+                  key={idx}
                   className="photo"
                   width="400"
                   height="300"
@@ -89,47 +88,47 @@ function TellyPage() {
           <div className="telly-amenities">
             {!telly?.tellyId?.internet && (
               <div>
-                <i class="fas fa-wifi"></i> wifi
+                <i className="fas fa-wifi"></i> wifi
               </div>
             )}
             {!telly?.tellyId?.airconditioning && (
               <div>
-                <i class="fas fa-wind"></i> air-conditioning
+                <i className="fas fa-wind"></i> air-conditioning
               </div>
             )}
             {!telly?.tellyId?.tv && (
               <div>
-                <i class="fas fa-tv"></i> tv
+                <i className="fas fa-tv"></i> tv
               </div>
             )}
             {!telly?.tellyId?.washerDryer && (
               <div>
-                <i class="fas fa-wifi"></i> washer/dryer
+                <i className="fas fa-wifi"></i> washer/dryer
               </div>
             )}
             {!telly?.tellyId?.gym && (
               <div>
-                <i class="fas fa-dumbbell"></i> gym
+                <i className="fas fa-dumbbell"></i> gym
               </div>
             )}
             {!telly?.tellyId?.kitchen && (
               <div>
-                <i class="fas fa-utensils"></i> kitchen
+                <i className="fas fa-utensils"></i> kitchen
               </div>
             )}
             {!telly?.tellyId?.freeParking && (
               <div>
-                <i class="fas fa-parking"></i> free parking
+                <i className="fas fa-parking"></i> free parking
               </div>
             )}
             {!telly?.tellyId?.essential && (
               <div>
-                <i class="fas fa-hand-holding-medical"></i> essentials
+                <i className="fas fa-hand-holding-medical"></i> essentials
               </div>
             )}
             {!telly?.tellyId?.pool && (
               <div>
-                <i class="fas fa-swimming-pool"></i> pool
+                <i className="fas fa-swimming-pool"></i> pool
               </div>
             )}
           </div>
