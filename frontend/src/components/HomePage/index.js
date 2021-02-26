@@ -1,8 +1,16 @@
+import { useEffect } from "react";
+import { useSearch } from "../../context/Search";
 import Discover from "./Discover";
 import Hosts from "./Hosts";
 import "./HomePage.css";
 
 function HomePage() {
+  const { setLocation } = useSearch();
+
+  useEffect(() => {
+    setLocation("");
+  }, []);
+
   return (
     <>
       <div id="banner-pic">

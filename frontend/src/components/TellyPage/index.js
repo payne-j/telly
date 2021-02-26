@@ -3,28 +3,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as searchActions from "../../store/search";
 import { useSearch } from "../../context/Search";
+import BookingForm from "../BookingFormModal/index";
+import LoginForm from "../LoginFormModal/index";
 import "./TellyPage.css";
 
 function TellyPage() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const userId = useSelector((state) => state.session.user);
   const { startDate, endDate } = useSearch();
-  const { id } = useSearch();
-  useEffect(() => dispatch(searchActions.tellyPage(id)), [id, dispatch]);
+  const { id, setLocation, total, setTotal } = useSearch();
+  useEffect(() => dispatch(searchActions.tellyPage(id)), [
+    id,
+    setLocation,
+    dispatch,
+  ]);
   const telly = useSelector(searchActions.resultId);
 
   const oneDay = 24 * 60 * 60 * 1000;
   const firstDate = new Date(startDate);
   const secondDate = new Date(endDate);
-
   const lengthOfStay = Math.round(Math.abs((firstDate - secondDate) / oneDay));
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const totalCost = telly?.id?.price * lengthOfStay;
+  setTotal(totalCost);
 
-    history.push("/");
-  };
   // // const total = telly.id.price *
-
   return (
     <>
       <div className="telly-name">{telly?.id?.name}</div>
@@ -68,11 +71,8 @@ function TellyPage() {
       </div>
       <div>${telly?.id?.price} / night</div>
       <div>
-        Book this Telly for {lengthOfStay} nights at $
-        {telly?.id?.price * lengthOfStay}
-        <form onSubmit={handleSubmit}>
-          <button type="submit">Reserve</button>
-        </form>
+        Book this Telly for {lengthOfStay} nights at ${total}
+        <BookingForm />
       </div>
     </>
   );
