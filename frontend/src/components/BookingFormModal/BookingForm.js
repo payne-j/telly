@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import * as searchActions from "../../store/search";
 import * as bookingActions from "../../store/booking";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +8,7 @@ import "./BookingForm.css";
 
 function BookingForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const userId = useSelector((state) => state.session.user.id);
   const {
     setLocation,
@@ -21,7 +23,8 @@ function BookingForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      bookingActions.makeBooking(userId, tellyId, startDate, endDate, total)
+      bookingActions.makeBooking(userId, tellyId, startDate, endDate, total),
+      history.push("/")
     );
   };
 
