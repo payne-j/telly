@@ -62,18 +62,25 @@ function TellyPage() {
           </div>
         </div>
       </div>
-      <div>
-        <img
-          alt="host-profile"
-          src={`${telly?.id?.User.profileImage}`}
-          className="telly-host-image"
-        />
+      <div className="telly-host">
+        {telly?.id?.occupancy} Guests · {telly?.id?.totalBedrooms} Bedrooms ·{" "}
+        {telly?.id?.totalBathrooms} Bathrooms
+        <span>
+          Hosted by {telly?.id?.User?.username}
+          <img
+            alt="host-profile"
+            src={`${telly?.id?.User.profileImage}`}
+            className="telly-host-image"
+          />
+        </span>
       </div>
-      <div className="telly-host">{telly?.id?.User?.username}</div>
-      <div>${telly?.id?.price} / night</div>
-      <div>
-        Book this Telly for {lengthOfStay} night(s) at ${total}
-        {userId ? <BookingForm /> : <LoginForm />}
+      <div className="telly-info">
+        <div className="telly-description">{telly?.id?.description}.</div>
+        <div className="telly-price">${telly?.id?.price} / night</div>
+        <div>
+          Book this Telly for {lengthOfStay} night(s) at ${total}
+          {userId ? <BookingForm /> : <LoginForm />}
+        </div>
       </div>
     </>
   );

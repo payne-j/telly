@@ -82,17 +82,34 @@
   background-color: rgba(203, 153, 126, 0.8);
 }
 
-.telly-host-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-}
 .telly-host {
+  width: auto;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.telly-host-image {
   width: 50px;
   height: 50px;
   border-radius: 50px;
 }
 
 .photos-slideshow {
+  padding: 10px;
+}
+
+.telly-info {
+  padding-left: 15px;
+}
+
+.telly-price {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.telly-description {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
   padding: 10px;
 }
