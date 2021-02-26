@@ -101,23 +101,36 @@
 
 .telly-info {
   padding-left: 15px;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: rgba(240, 239, 235, 0.2);
 }
 
 .telly-price {
   padding-bottom: 10px;
   padding-top: 10px;
-  border-bottom: 1px solid black;
+  background-color: rgba(240, 239, 235, 0.3);
+  width: 100%;
 }
 
 .telly-description {
   border-bottom: 1px solid black;
-  border-top: 1px solid black;
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
 .telly-amenities-container {
+  border-top: 1px solid black;
   padding-bottom: 10px;
   padding-top: 10px;
   border-bottom: 1px solid black;
+}
+
+.booking-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(240, 239, 235, 0.3);
+  width: 100%;
 }

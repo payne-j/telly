@@ -6,7 +6,7 @@ import "./SearchResults.css";
 
 function SearchResults() {
   const results = useSelector(searchActions.searchResults);
-  const { id, setId, setLocation } = useSearch();
+  const { tellyId, setTellyId, setLocation } = useSearch();
 
   return (
     <>
@@ -14,15 +14,15 @@ function SearchResults() {
       <div>
         <ul>
           {results.map((result) => (
-            <li className="search-result" key={result?.id}>
+            <li className="search-result" key={result?.tellyId}>
               <div className="search-description">
                 {result?.type} in {result?.city}{" "}
               </div>
               <div className="search-name">
                 <Link
                   className="search-link"
-                  onClick={(setId(result?.id))}
-                  to={`/search/tellies/${id}`}
+                  onClick={(setTellyId(result?.id))}
+                  to={`/search/tellies/${tellyId}`}
                 >
                   {result.name}
                   {/* //TODO: add photo query */}

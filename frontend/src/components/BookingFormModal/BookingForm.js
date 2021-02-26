@@ -9,37 +9,29 @@ function BookingForm() {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.session.user);
   const {
-    location,
     setLocation,
     startDate,
     endDate,
     guests,
-    id,
+    tellyId,
     total,
     length,
-    price,
   } = useSearch();
-
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [age, setAge] = useState();
-  const [payment, setPayment] = useState("XXXX-XXXX-XXXX-XXXX");
 
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    console.log("Submit:");
+
     return dispatch(
-      bookingActions.createBooking({ userId, id, startDate, endDate, total })
-    ).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
+      bookingActions.createBooking({ userId, tellyId, startDate, endDate, total })
+    );
   };
 
-  useEffect(() => dispatch(searchActions.tellyPage(id)), [
-    id,
+  useEffect(() => dispatch(searchActions.tellyPage(tellyId)), [
+    tellyId,
     setLocation,
     dispatch,
   ]);
@@ -53,22 +45,22 @@ function BookingForm() {
           alt=""
           width="600"
           height="400"
-          src={`${telly?.id?.Photos[0]?.imageUrl}`}
+          src={`${telly?.tellyId?.Photos[0]?.imageUrl}`}
         />
       </div>
       <form className="booking-form" onSubmit={handleSubmit}>
         <div className="form-container">
           <div className="host-div">
-            {telly?.id?.type} hosted by {telly?.id?.User?.username}
+            {telly?.tellyId?.type} hosted by {telly?.tellyId?.User?.username}
             <img
               alt=""
               id="modal-host"
-              src={`${telly?.id?.User?.profileImage}`}
+              src={`${telly?.tellyId?.User?.profileImage}`}
             />
           </div>
-          <div className="div-lines">{telly?.id?.name}</div>
+          <div className="div-lines">{telly?.tellyId?.name}</div>
           <div className="div-lines">
-            {telly?.id?.city}, {telly?.id?.state}
+            {telly?.tellyId?.city}, {telly?.tellyId?.state}
           </div>
           <div className="div-lines"></div>
           <div>
@@ -76,11 +68,11 @@ function BookingForm() {
           </div>
           <div className="div-lines"></div>
           <div>
-            ${telly?.id?.price} X {length} night(s) | Total: ${total}
+            ${telly?.tellyId?.price} X {length} night(s) | Total: ${total}
           </div>
           <div></div>
           <button className="modal-btn" type="submit">
-            Reserve
+            Book now
           </button>
         </div>
       </form>

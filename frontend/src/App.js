@@ -17,7 +17,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const { location, startDate, endDate, guests, id } = useSearch();
+  const { location, startDate, endDate, guests, tellyId } = useSearch();
 
   return (
     <>
@@ -33,7 +33,7 @@ function App() {
         >
           <SearchResults />
         </Route>
-        <Route path={`/search/tellies/${id}`} exact>
+        <Route path={`/search/tellies/${tellyId}`} exact>
           <TellyPage />
         </Route>
         <Route>

@@ -7,8 +7,8 @@ function BookingFormModal() {
 
   return (
     <>
-      <button className="nav-btn" onClick={() => setShowModal(true)}>
-        Reserve
+      <button className="booking-btn" onClick={() => setShowModal(true)}>
+        Book now
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
