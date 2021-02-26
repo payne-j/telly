@@ -29,8 +29,7 @@ export const makeBooking = (
   endDate,
   total
 ) => async (dispatch) => {
-  console.log("USER ID:", userId);
-  const response = await csrfFetch(`/api/bookings`, {
+  const response = await csrfFetch(`/api/bookings/create`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +44,6 @@ export const makeBooking = (
   });
   const data = await response.json();
   dispatch(createBooking(data.booking));
-  console.log("THUNK DATA>BOOKING:", data.booking);
   return data.booking;
 };
 

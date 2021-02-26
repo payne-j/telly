@@ -5,7 +5,6 @@ export async function csrfFetch(url, options = {}) {
   options.headers = options.headers || {};
 
   if (options.method.toUpperCase() !== "GET") {
-    console.log("CSRF");
     options.headers["Content-Type"] =
       options.headers["Content-Type"] || "application/json";
     options.headers["XSRF-Token"] = Cookies.get("XSRF-TOKEN");

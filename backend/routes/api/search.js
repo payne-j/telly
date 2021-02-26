@@ -46,7 +46,6 @@ router.get(
       },
       include: [User, Photo],
     });
-    console.log("RESULTS:", results);
     res.json({ tellyId: results });
   })
 );

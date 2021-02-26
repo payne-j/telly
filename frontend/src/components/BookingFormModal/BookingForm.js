@@ -20,14 +20,12 @@ function BookingForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(userId)
     dispatch(
       bookingActions.makeBooking(userId, tellyId, startDate, endDate, total)
     );
   };
 
   useEffect(() => {
-    console.log("USEEFEECT");
     dispatch(searchActions.tellyPage(tellyId));
   }, [tellyId, setLocation, dispatch]);
 
