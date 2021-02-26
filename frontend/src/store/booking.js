@@ -1,3 +1,4 @@
+import { csrfFetch } from "./csrf";
 const CREATE_BOOKING = "booking/createBooking";
 const CANCEL_BOOKING = "booking/cancelBooking";
 const GET_BOOKING = "booking/getBooking";
@@ -28,23 +29,20 @@ export const makeBooking = (
   endDate,
   total
 ) => async (dispatch) => {
-  console.log('USER ID:', userId);
-  const response = await fetch(
-    `/api/bookings/${tellyId}/${startDate}/${endDate}/${userId}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId,
-        tellyId,
-        startDate,
-        endDate,
-        total,
-      }),
-    }
-  );
+  console.log("USER ID:", userId);
+  const response = await csrfFetch(`/api/bookings`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userId,
+      tellyId,
+      startDate,
+      endDate,
+      total,
+    }),
+  });
   const data = await response.json();
   dispatch(createBooking(data.booking));
   console.log("THUNK DATA>BOOKING:", data.booking);
