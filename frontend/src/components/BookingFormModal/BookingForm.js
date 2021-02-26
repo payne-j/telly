@@ -53,13 +53,18 @@ function BookingForm() {
           alt=""
           width="600"
           height="400"
-          src={`${telly?.id?.Photos[0].imageUrl}`}
+          src={`${telly?.id?.Photos[0]?.imageUrl}`}
         />
       </div>
       <form className="booking-form" onSubmit={handleSubmit}>
         <div className="form-container">
-          <div>
-            <img alt="" id="modal-host" src={`${telly.id.User.profileImage}`} />
+          <div className="host-div">
+            {telly?.id?.type} hosted by {telly?.id?.User?.username}
+            <img
+              alt=""
+              id="modal-host"
+              src={`${telly?.id?.User?.profileImage}`}
+            />
           </div>
           <div className="div-lines">{telly?.id?.name}</div>
           <div className="div-lines">

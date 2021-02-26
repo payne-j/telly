@@ -62,7 +62,6 @@ function TellyPage() {
           </div>
         </div>
       </div>
-      <div className="telly-host">{telly?.id?.User?.username}</div>
       <div>
         <img
           alt="host-profile"
@@ -70,9 +69,10 @@ function TellyPage() {
           className="telly-host-image"
         />
       </div>
+      <div className="telly-host">{telly?.id?.User?.username}</div>
       <div>${telly?.id?.price} / night</div>
       <div>
-        Book this Telly for {lengthOfStay} nights at ${total}
+        Book this Telly for {lengthOfStay} night(s) at ${total}
         {userId ? <BookingForm /> : <LoginForm />}
       </div>
     </>
