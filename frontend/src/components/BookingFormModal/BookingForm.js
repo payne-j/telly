@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import * as searchActions from "../../store/search";
 import * as bookingActions from "../../store/booking";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearch } from "../../context/Search";
+import "./BookingForm.css";
 
 function BookingForm() {
   const dispatch = useDispatch();
@@ -10,15 +12,12 @@ function BookingForm() {
     location,
     setLocation,
     startDate,
-    setStartDate,
     endDate,
-    setEndDate,
     guests,
-    setGuests,
     id,
-    setId,
     total,
-    setTotal,
+    length,
+    price,
   } = useSearch();
 
   const [firstName, setFirstName] = useState();
@@ -39,38 +38,42 @@ function BookingForm() {
     });
   };
 
+  useEffect(() => dispatch(searchActions.tellyPage(id)), [
+    id,
+    setLocation,
+    dispatch,
+  ]);
+
+  const telly = useSelector(searchActions.resultId);
+
   return (
     <>
-      <form className="login-form" onSubmit={handleSubmit}>
+      <div>
+        <img
+          alt=""
+          width="600"
+          height="400"
+          src={`${telly?.id?.Photos[0].imageUrl}`}
+        />
+      </div>
+      <form className="booking-form" onSubmit={handleSubmit}>
         <div className="form-container">
           <div>
-            <ul className="errors-list">
-              {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
-              ))}
-            </ul>
+            <img alt="" id="modal-host" src={`${telly.id.User.profileImage}`} />
           </div>
-          <div className="title">First name</div>
+          <div className="div-lines">{telly?.id?.name}</div>
+          <div className="div-lines">
+            {telly?.id?.city}, {telly?.id?.state}
+          </div>
+          <div className="div-lines"></div>
           <div>
-            <input
-              type="text"
-              placeholder="        first name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-              autoComplete="first-name"
-            />
+            Check in: {startDate} | Checkout: {endDate}
           </div>
+          <div className="div-lines"></div>
           <div>
-            <input
-              type="text"
-              placeholder="            last name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-              autoComplete="current-password"
-            />
+            ${telly?.id?.price} X {length} night(s) | Total: ${total}
           </div>
+          <div></div>
           <button className="modal-btn" type="submit">
             Reserve
           </button>

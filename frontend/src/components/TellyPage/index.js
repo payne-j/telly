@@ -12,7 +12,7 @@ function TellyPage() {
   const history = useHistory();
   const userId = useSelector((state) => state.session.user);
   const { startDate, endDate } = useSearch();
-  const { id, setLocation, total, setTotal } = useSearch();
+  const { id, setLocation, total, setTotal, length, setLength } = useSearch();
   useEffect(() => dispatch(searchActions.tellyPage(id)), [
     id,
     setLocation,
@@ -24,6 +24,7 @@ function TellyPage() {
   const firstDate = new Date(startDate);
   const secondDate = new Date(endDate);
   const lengthOfStay = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+  setLength(lengthOfStay);
   const totalCost = telly?.id?.price * lengthOfStay;
   setTotal(totalCost);
 
@@ -72,7 +73,7 @@ function TellyPage() {
       <div>${telly?.id?.price} / night</div>
       <div>
         Book this Telly for {lengthOfStay} nights at ${total}
-        <BookingForm />
+        {userId ? <BookingForm /> : <LoginForm />}
       </div>
     </>
   );

@@ -16,6 +16,7 @@ export default function SearchProvider({ children }) {
   const [guests, setGuests] = useState(1);
   const [id, setId] = useState();
   const [total, setTotal] = useState();
+  const [length, setLength] = useState();
 
   return (
     <SearchContext.Provider
@@ -32,6 +33,8 @@ export default function SearchProvider({ children }) {
         setId,
         total,
         setTotal,
+        length,
+        setLength,
       }}
     >
       {children}
