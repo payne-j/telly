@@ -105,11 +105,19 @@
 
 .telly-price {
   padding-bottom: 10px;
+  padding-top: 10px;
   border-bottom: 1px solid black;
 }
 
 .telly-description {
   border-bottom: 1px solid black;
   border-top: 1px solid black;
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.telly-amenities-container {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid black;
 }

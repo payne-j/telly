@@ -77,6 +77,56 @@ function TellyPage() {
       <div className="telly-info">
         <div className="telly-description">{telly?.id?.description}.</div>
         <div className="telly-price">${telly?.id?.price} / night</div>
+        <div className="telly-amenities-container">
+          Amenities
+          <div className="telly-amenities">
+            {!telly?.id?.internet && (
+              <div>
+                <i class="fas fa-wifi"></i> wifi
+              </div>
+            )}
+            {!telly?.id?.airconditioning && (
+              <div>
+                <i class="fas fa-wind"></i> air-conditioning
+              </div>
+            )}
+            {!telly?.id?.tv && (
+              <div>
+                <i class="fas fa-tv"></i> tv
+              </div>
+            )}
+            {!telly?.id?.washerDryer && (
+              <div>
+                <i class="fas fa-wifi"></i> washer/dryer
+              </div>
+            )}
+            {!telly?.id?.gym && (
+              <div>
+                <i class="fas fa-dumbbell"></i> gym
+              </div>
+            )}
+            {!telly?.id?.kitchen && (
+              <div>
+                <i class="fas fa-utensils"></i> kitchen
+              </div>
+            )}
+            {!telly?.id?.freeParking && (
+              <div>
+                <i class="fas fa-parking"></i> free parking
+              </div>
+            )}
+            {!telly?.id?.essential && (
+              <div>
+                <i class="fas fa-hand-holding-medical"></i> essentials
+              </div>
+            )}
+            {!telly?.id?.pool && (
+              <div>
+                <i class="fas fa-swimming-pool"></i> pool
+              </div>
+            )}
+          </div>
+        </div>
         <div>
           Book this Telly for {lengthOfStay} night(s) at ${total}
           {userId ? <BookingForm /> : <LoginForm />}
