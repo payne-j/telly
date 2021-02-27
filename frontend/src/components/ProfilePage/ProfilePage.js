@@ -8,12 +8,11 @@ import "./ProfilePage.css";
 function ProfilePage() {
   const dispatch = useDispatch();
   const results = useSelector(searchActions.searchResults);
-  // const userBookings = useSelector(bookingActions.userBookings);
+  const bookings = useSelector(bookingActions.userBookings);
   const user = useSelector((state) => state.session.user);
-
-  // useEffect(() => {
-  //   dispatch(bookingActions.userBookings(user?.id));
-  // });
+  useEffect(() => {
+    dispatch(bookingActions.userBookings(user?.id));
+  }, [user?.id, dispatch]);
 
   return (
     <>

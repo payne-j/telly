@@ -24,7 +24,7 @@ function BookingForm() {
     e.preventDefault();
     dispatch(
       bookingActions.makeBooking(userId, tellyId, startDate, endDate, total),
-      history.push("/profile/userId")
+      history.push(`/profile/${userId}`)
     );
   };
 

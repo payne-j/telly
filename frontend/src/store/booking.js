@@ -47,8 +47,16 @@ export const makeBooking = (
   return data.booking;
 };
 
-// export const searchResults = (session) => session.search.location;
-// export const resultId = (session) => session.search;
+export const userBookings = (userId) => async (dispatch) => {
+  const response = await fetch(`/api/bookings/${userId}`);
+  console.log("RESPONSE STORE:", response);
+  const data = await response.json();
+  dispatch(getBooking(data.booking));
+  return data.booking;
+};
+
+export const bookings = (session) => session.booking;
+
 const initialState = { booking: null };
 
 const bookingReducer = (state = initialState, action) => {
