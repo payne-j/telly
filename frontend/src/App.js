@@ -38,10 +38,10 @@ function App() {
         <Route path={`/search/tellies/${tellyId}`} exact>
           <TellyPage />
         </Route>
-        <Route>
+        <Route path={`/profile/${user?.id}`}>
           <ProfilePage />
         </Route>
-        <Route path={`/profile/${user?.id}`}>
+        <Route>
           <PageNotFound />
         </Route>
       </Switch>

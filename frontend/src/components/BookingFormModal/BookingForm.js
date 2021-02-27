@@ -9,7 +9,7 @@ import "./BookingForm.css";
 function BookingForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const user = useSelector((state) => state.session.user.id);
+  const user = useSelector((state) => state.session.user);
   const {
     setLocation,
     startDate,
@@ -24,7 +24,7 @@ function BookingForm() {
     e.preventDefault();
     dispatch(
       bookingActions.makeBooking(user.id, tellyId, startDate, endDate, total),
-      history.push(`/profile/${user.id}`)
+      history.push(`/profile/${user?.id}`)
     );
   };
 

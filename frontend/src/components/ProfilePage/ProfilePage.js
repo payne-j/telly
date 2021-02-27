@@ -31,7 +31,7 @@ function ProfilePage() {
             <div key={idx} className="booking-container">
               <div className="user-booking">{booking?.Telly.name}</div>
               <div className="user-dates">
-                {booking.startDate &&
+                {booking?.startDate &&
                   booking.startDate.toString().split("T")[0]}{" "}
                 to {booking.endDate && booking.endDate.toString().split("T")[0]}
               </div>
