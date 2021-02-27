@@ -1,19 +1,27 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import "./Navigation.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
     showMenu ? setShowMenu(false) : setShowMenu(true);
   };
+  const userId = useSelector((state) => state.session.user.id);
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
+    history.push("/");
+  };
+
+  const profile = () => {
+    history.push(`/profile/${userId}`);
   };
   return (
     <>
@@ -24,7 +32,9 @@ function ProfileButton({ user }) {
         <ul className="drop-menu">
           <li>{user.username}</li>
           <li>{user.email}</li>
-          <li>{user.email}</li>
+          <li>
+            <button onClick={profile}>Profile</button>
+          </li>
           <li>
             <button id="nav-logout" onClick={logout}>
               log out <i className="fas fa-sign-out-alt"></i>
