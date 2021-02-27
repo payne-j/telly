@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
-const { Booking } = require("../../db/models");
+const { Booking, Telly } = require("../../db/models");
 
 router.post(
   "/create",
@@ -24,6 +24,7 @@ router.get(
     const userId = req.params.userId;
     const results = await Booking.findAll({
       where: { userId },
+      include: Telly,
     });
     res.json({ booking: results });
   })

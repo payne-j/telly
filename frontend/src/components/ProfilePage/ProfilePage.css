@@ -1,3 +1,8 @@
 .profile-image {
   border-radius: 50px;
 }
+
+.user-booking {
+  padding: 5px;
+  width: 100%;
+}

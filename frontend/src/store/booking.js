@@ -55,7 +55,7 @@ export const userBookings = (userId) => async (dispatch) => {
   return data.booking;
 };
 
-export const bookings = (session) => session.booking;
+export const bookings = (booking) => booking.booking;
 
 const initialState = { booking: null };
 
