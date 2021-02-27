@@ -3,6 +3,13 @@ const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const { Booking, Telly } = require("../../db/models");
 
+const bookingNotFound = (bookingId) => {
+  const err = Error(`Booking with an id of ${bookingId} could not be found`);
+  err.title = "Tweet not found";
+  err.status = 404;
+  return err;
+};
+
 router.post(
   "/create",
   asyncHandler(async (req, res) => {
@@ -25,8 +32,24 @@ router.get(
     const results = await Booking.findAll({
       where: { userId },
       include: Telly,
+      order: [["startDate", "DESC"]],
     });
     res.json({ booking: results });
+  })
+);
+
+router.delete(
+  "/delete/:bookingId",
+  asyncHandler(async (req, res) => {
+    const bookingId = req.params.bookingId;
+    const booking = await Booking.findByPk(bookingId);
+
+    if (booking) {
+      await booking.destroy();
+      res.status(204).end();
+    } else {
+      next(bookingNotFound(booking));
+    }
   })
 );
 

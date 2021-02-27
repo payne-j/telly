@@ -55,6 +55,14 @@ export const userBookings = (userId) => async (dispatch) => {
   return data.booking;
 };
 
+export const deleteBooking = (bookingId) => async(dispatch) => {
+  const response = await csrfFetch(`/bookings/cancel/${bookingId}`, {
+    method: "DELETE",
+  });
+  dispatch(cancelBooking(bookingId));
+  return response;
+}
+
 export const bookings = (booking) => booking.booking;
 
 const initialState = { booking: null };
