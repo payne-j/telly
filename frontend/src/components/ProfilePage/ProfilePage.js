@@ -7,16 +7,15 @@ import "./ProfilePage.css";
 
 function ProfilePage() {
   const dispatch = useDispatch();
-  const [bookingId, setBookingId] = useState();
-  const results = useSelector(searchActions.searchResults);
   const bookings = useSelector(bookingActions.bookings);
   const user = useSelector((state) => state.session.user);
+  const [bookingId, setBookingId] = useState();
+
   useEffect(() => {
     dispatch(bookingActions.userBookings(user?.id));
-  }, [user?.id, dispatch]);
+  }, [user?.id, setBookingId, dispatch]);
 
   const cancel = (e) => {
-    console.log("BOOKING ID", e.target.value);
     dispatch(bookingActions.deleteBooking(e.target.value));
   };
 
@@ -28,20 +27,19 @@ function ProfilePage() {
       <div className="bookings-div">Upcoming Bookings</div>
       <div className="user-bookings">
         {bookings &&
-          bookings?.booking?.map((booking) => (
-            <div key="booking.id" className="booking-container">
-              <div className="user-booking">{booking.Telly.name}</div>
+          bookings?.booking?.map((booking, idx) => (
+            <div key={idx} className="booking-container">
+              <div className="user-booking">{booking?.Telly.name}</div>
               <div className="user-dates">
                 {booking.startDate &&
                   booking.startDate.toString().split("T")[0]}{" "}
-                to
-                {booking.endDate && booking.endDate.toString().split("T")[0]}
+                to {booking.endDate && booking.endDate.toString().split("T")[0]}
               </div>
               <div>
                 <button
                   value={booking.id}
                   className="cancel-btn"
-                  onClick={(e) => cancel(e)}
+                  onClick={(e) => [setBookingId(e.target.value), cancel(e)]}
                 >
                   Cancel
                 </button>

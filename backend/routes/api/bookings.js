@@ -39,11 +39,10 @@ router.get(
 );
 
 router.delete(
-  "/delete/:bookingId",
+  "/cancel/:bookingId",
   asyncHandler(async (req, res) => {
     const bookingId = req.params.bookingId;
     const booking = await Booking.findByPk(bookingId);
-
     if (booking) {
       await booking.destroy();
       res.status(204).end();

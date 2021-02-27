@@ -13,7 +13,6 @@ function ProfileButton({ user }) {
     showMenu ? setShowMenu(false) : setShowMenu(true);
   };
   const userId = useSelector((state) => state.session.user.id);
-  console.log(userId);
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
