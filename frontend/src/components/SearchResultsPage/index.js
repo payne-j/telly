@@ -20,12 +20,10 @@ function SearchResults() {
               <div className="search-name">
                 <Link
                   className="search-link"
-                  onClick={setTellyId(result?.id)}
+                  onClick={setTellyId(result.id)}
                   to={`/search/tellies/${tellyId}`}
                 >
                   {result.name}
-                  {/* //TODO: add photo query */}
-                  <span className="result-photo">{result?.photos}</span>
                 </Link>
               </div>
             </li>
