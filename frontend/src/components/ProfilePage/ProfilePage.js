@@ -16,8 +16,8 @@ function ProfilePage() {
   }, [user?.id, dispatch]);
 
   const cancel = (e) => {
-    console.log("EEEEEEEEEEE", e.target.id);
-    dispatch(bookingActions.deleteBooking(e.target.id));
+    console.log("BOOKING ID", e.target.value);
+    dispatch(bookingActions.deleteBooking(e.target.value));
   };
 
   return (
@@ -29,7 +29,7 @@ function ProfilePage() {
       <div className="user-bookings">
         {bookings &&
           bookings?.booking?.map((booking) => (
-            <div className="booking-container">
+            <div key="booking.id" className="booking-container">
               <div className="user-booking">{booking.Telly.name}</div>
               <div className="user-dates">
                 {booking.startDate &&
@@ -38,7 +38,11 @@ function ProfilePage() {
                 {booking.endDate && booking.endDate.toString().split("T")[0]}
               </div>
               <div>
-                <button className="cancel-btn" onClick={(e) => cancel(e)}>
+                <button
+                  value={booking.id}
+                  className="cancel-btn"
+                  onClick={(e) => cancel(e)}
+                >
                   Cancel
                 </button>
               </div>
