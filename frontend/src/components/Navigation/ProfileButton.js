@@ -24,6 +24,7 @@ function ProfileButton({ user }) {
         <ul className="drop-menu">
           <li>{user.username}</li>
           <li>{user.email}</li>
+          <li>{user.email}</li>
           <li>
             <button id="nav-logout" onClick={logout}>
               log out <i className="fas fa-sign-out-alt"></i>

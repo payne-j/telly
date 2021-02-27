@@ -18,10 +18,10 @@ function ProfilePage() {
   return (
     <>
       <div className="profile-greeting">You're going to **LOCATION**</div>
-      <img alt="" src={`${user?.profileImage}`}></img>
+      <img className="profile-image" alt="" src={`${user?.profileImage}`}></img>
       <div>{user?.username}</div>
-      <div>Upcoming Bookings</div>
-      <div>Reviews</div>
+      <div className="bookings-div">Upcoming Bookings</div>
+      <div className="reviews-div">Reviews</div>
     </>
   );
 }
