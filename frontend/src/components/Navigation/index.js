@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ProfileButton from "./ProfileButton";
+import BookingsButton from "./BookingsButton";
 import DropMenu from "./DropMenu";
 import "./Navigation.css";
 
@@ -10,7 +10,7 @@ const Navigation = ({ isLoaded }) => {
 
   let navLinks;
   if (sessionUser) {
-    navLinks = <ProfileButton user={sessionUser} />;
+    navLinks = <BookingsButton user={sessionUser} />;
   } else {
     navLinks = (
       <>

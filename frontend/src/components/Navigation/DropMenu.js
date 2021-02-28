@@ -1,6 +1,5 @@
 import { useState } from "react";
 import LoginFormModal from "../LoginFormModal";
-import ProfilePage from "../ProfilePage/ProfilePage";
 import SignupFormModal from "../SignupFormModal";
 import DemoButton from "./DemoButton";
 import "./Navigation.css";

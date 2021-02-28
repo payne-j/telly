@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import PageNotFound from "./components/PageNotFound";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
+import BookingsPage from "./components/BookingsPage/Bookings";
 import Search from "./components/Search";
 import SearchResults from "./components/SearchResultsPage";
 import TellyPage from "./components/TellyPage";
@@ -38,8 +38,8 @@ function App() {
         <Route path={`/search/tellies/${tellyId}`} exact>
           <TellyPage />
         </Route>
-        <Route path={`/profile/${user?.id}`}>
-          <ProfilePage />
+        <Route path={`/bookings/${user?.id}`}>
+          <BookingsPage />
         </Route>
         <Route>
           <PageNotFound />

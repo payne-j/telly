@@ -26,7 +26,7 @@ function BookingForm() {
     dispatch(
       bookingActions.makeBooking(userId, tellyId, startDate, endDate, total)
     );
-    history.push(`/profile/${userId}`);
+    history.push(`/bookings/${userId}`);
   };
   useEffect(() => {
     dispatch(searchActions.tellyPage(tellyId));

@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import * as searchActions from "../../store/search";
 import * as bookingActions from "../../store/booking";
-import "./ProfilePage.css";
+import "./BookingsPage.css";
 
-function ProfilePage() {
+function BookingsPage() {
   const dispatch = useDispatch();
   const bookings = useSelector(bookingActions.bookings);
   const user = useSelector((state) => state.session.user);
@@ -65,4 +65,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default BookingsPage;

@@ -19,8 +19,8 @@ function ProfileButton({ user }) {
     history.push("/");
   };
 
-  const profile = () => {
-    history.push(`/profile/${userId}`);
+  const bookings = () => {
+    history.push(`/bookings/${userId}`);
   };
   return (
     <>
@@ -32,7 +32,7 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={profile}>Profile</button>
+            <button onClick={bookings}>Bookings</button>
           </li>
           <li>
             <button id="nav-logout" onClick={logout}>
