@@ -86,47 +86,47 @@ function TellyPage() {
         <div className="telly-amenities-container">
           Amenities
           <div className="telly-amenities">
-            {!telly?.tellyId?.internet && (
+            {telly?.tellyId?.internet && (
               <div>
                 <i className="fas fa-wifi"></i> wifi
               </div>
             )}
-            {!telly?.tellyId?.airconditioning && (
+            {telly?.tellyId?.airconditioning && (
               <div>
                 <i className="fas fa-wind"></i> air-conditioning
               </div>
             )}
-            {!telly?.tellyId?.tv && (
+            {telly?.tellyId?.tv && (
               <div>
                 <i className="fas fa-tv"></i> tv
               </div>
             )}
-            {!telly?.tellyId?.washerDryer && (
+            {telly?.tellyId?.washerDryer && (
               <div>
                 <i className="fas fa-wifi"></i> washer/dryer
               </div>
             )}
-            {!telly?.tellyId?.gym && (
+            {telly?.tellyId?.gym && (
               <div>
                 <i className="fas fa-dumbbell"></i> gym
               </div>
             )}
-            {!telly?.tellyId?.kitchen && (
+            {telly?.tellyId?.kitchen && (
               <div>
                 <i className="fas fa-utensils"></i> kitchen
               </div>
             )}
-            {!telly?.tellyId?.freeParking && (
+            {telly?.tellyId?.freeParking && (
               <div>
                 <i className="fas fa-parking"></i> free parking
               </div>
             )}
-            {!telly?.tellyId?.essential && (
+            {telly?.tellyId?.essential && (
               <div>
                 <i className="fas fa-hand-holding-medical"></i> essentials
               </div>
             )}
-            {!telly?.tellyId?.pool && (
+            {telly?.tellyId?.pool && (
               <div>
                 <i className="fas fa-swimming-pool"></i> pool
               </div>
@@ -135,7 +135,7 @@ function TellyPage() {
         </div>
         <div className="booking-container">
           Book this Telly for {lengthOfStay} night(s) at ${total}
-          {userId? <BookingForm /> : <LoginForm />}
+          {userId ? <BookingForm /> : <LoginForm />}
         </div>
       </div>
     </>
