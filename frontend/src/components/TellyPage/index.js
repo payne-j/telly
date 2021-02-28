@@ -135,7 +135,7 @@ function TellyPage() {
         </div>
         <div className="booking-container">
           Book this Telly for {lengthOfStay} night(s) at ${total}
-          {userId ? <BookingForm /> : <LoginForm />}
+          {userId? <BookingForm /> : <LoginForm />}
         </div>
       </div>
     </>

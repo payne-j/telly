@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as searchActions from "../../store/search";
 import * as bookingActions from "../../store/booking";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +8,6 @@ import "./BookingForm.css";
 
 function BookingForm() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const user = useSelector((state) => state.session.user.id);
   const {
     setLocation,
@@ -21,20 +20,16 @@ function BookingForm() {
   } = useSearch();
 
   const [userId, setUserId] = useState(user);
-  setUserId(user);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const book = () => {
     dispatch(
-      bookingActions.makeBooking(user, tellyId, startDate, endDate, total),
-      history.push(`/profile/${userId}`)
+      bookingActions.makeBooking(userId, tellyId, startDate, endDate, total)
     );
   };
 
   useEffect(() => {
     dispatch(searchActions.tellyPage(tellyId));
-    return () => {};
-  }, [tellyId, dispatch]);
+  }, [tellyId, setLocation, dispatch]);
 
   const telly = useSelector(searchActions.resultId);
 
@@ -48,7 +43,7 @@ function BookingForm() {
           src={`${telly?.tellyId?.Photos[0]?.imageUrl}`}
         />
       </div>
-      <form className="booking-form" onSubmit={handleSubmit}>
+      <form className="booking-form">
         <div className="form-container">
           <div className="host-div">
             {telly?.tellyId?.type} hosted by {telly?.tellyId?.User?.username}
@@ -72,8 +67,8 @@ function BookingForm() {
           </div>
           <div>number of guests: {guests}</div>
           <div></div>
-          <button className="modal-btn" type="submit">
-            Book now
+          <button className="modal-btn" onClick={book}>
+            <Link to={`/profile/${userId}`}>Book now</Link>
           </button>
         </div>
       </form>
