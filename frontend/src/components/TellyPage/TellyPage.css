@@ -67,19 +67,19 @@
   outline: black;
 }
 .buttons a:hover {
-  background-color: rgba(237, 220, 210, 0.7);
+  background-color: rgba(237, 220, 210, 0.8);
 }
 .buttons a {
   display: inline-block;
   height: 15px;
   width: 15px;
   border: 50px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
 }
 
 .button:active {
-  background-color: rgba(203, 153, 126, 0.8);
+  background-color: rgba(203, 153, 126, 0.9);
 }
 
 .telly-host {
@@ -134,5 +134,3 @@
   background-color: rgba(240, 239, 235, 0.3);
   width: 100%;
 }
-
-

@@ -30,7 +30,7 @@ function BookingsPage() {
     <>
       <div className="bookings-user">Bon voyage, {user.username}</div>
       <div className="bookings-div">
-        Upcoming Bookings ({bookings.booking.length})
+        Upcoming Bookings ({bookings?.booking?.length})
         <button id="show-btn" onClick={show}>
           Show bookings
         </button>
