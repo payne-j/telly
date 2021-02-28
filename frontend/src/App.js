@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import PageNotFound from "./components/PageNotFound";
+import BookingsPage from "./components/BookingsPage/Bookings";
 import Search from "./components/Search";
 import SearchResults from "./components/SearchResultsPage";
 import TellyPage from "./components/TellyPage";
@@ -18,6 +19,7 @@ function App() {
   }, [dispatch]);
 
   const { location, startDate, endDate, guests, tellyId } = useSearch();
+  const user = useSelector((state) => state.session.user);
 
   return (
     <>
@@ -35,6 +37,9 @@ function App() {
         </Route>
         <Route path={`/search/tellies/${tellyId}`} exact>
           <TellyPage />
+        </Route>
+        <Route path={`/bookings/${user?.id}`}>
+          <BookingsPage />
         </Route>
         <Route>
           <PageNotFound />

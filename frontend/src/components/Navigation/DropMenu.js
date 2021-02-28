@@ -14,23 +14,20 @@ function DropMenu() {
   return (
     <div className="drop-container">
       <button id="nav-drop" onClick={toggleMenu}>
-        <i
-          id="user-icon"
-          className="far fa-user-circle fa-2x"
-        ></i>
+        <i id="user-icon" className="far fa-user-circle fa-2x"></i>
       </button>
       {showMenu && (
-          <ul className="drop-menu">
-            <li>
-              <LoginFormModal />
-            </li>
-            <li>
-              <SignupFormModal />
-            </li>
-            <li>
-              <DemoButton />
-            </li>
-          </ul>
+        <ul className="drop-menu">
+          <li>
+            <LoginFormModal />
+          </li>
+          <li>
+            <SignupFormModal />
+          </li>
+          <li>
+            <DemoButton />
+          </li>
+        </ul>
       )}
     </div>
   );

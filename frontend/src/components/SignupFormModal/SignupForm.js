@@ -9,7 +9,7 @@ const SignupForm = () => {
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -19,7 +19,14 @@ const SignupForm = () => {
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
-        sessionActions.signup({ username, email, password })
+        sessionActions.signup({
+          username,
+          email,
+          password,
+          firstName,
+          lastName,
+          phone,
+        })
       ).catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -84,8 +91,8 @@ const SignupForm = () => {
             <input
               placeholder="               phone"
               type="tel"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               required
               autoComplete="phone"
             />

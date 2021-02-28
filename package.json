@@ -7,5 +7,9 @@
     "sequelize": "npm run --prefix backend sequelize",
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
+  },
+  "dependencies": {
+    "redux-connect": "^10.0.0",
+    "redux-saga": "^1.1.3"
   }
 }

@@ -9,7 +9,7 @@ import "./BookingForm.css";
 function BookingForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const userId = useSelector((state) => state.session.user.id);
+  const user = useSelector((state) => state.session.user.id);
   const {
     setLocation,
     startDate,
@@ -20,20 +20,20 @@ function BookingForm() {
     length,
   } = useSearch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(
-      bookingActions.makeBooking(userId, tellyId, startDate, endDate, total),
-      history.push("/")
-    );
-  };
+  const [userId, setUserId] = useState(user);
 
+  const book = () => {
+    dispatch(
+      bookingActions.makeBooking(userId, tellyId, startDate, endDate, total)
+    );
+    history.push(`/bookings/${userId}`);
+  };
   useEffect(() => {
     dispatch(searchActions.tellyPage(tellyId));
   }, [tellyId, setLocation, dispatch]);
 
   const telly = useSelector(searchActions.resultId);
-
+  console.log('TELLY:', telly)
   return (
     <>
       <div>
@@ -44,7 +44,7 @@ function BookingForm() {
           src={`${telly?.tellyId?.Photos[0]?.imageUrl}`}
         />
       </div>
-      <form className="booking-form" onSubmit={handleSubmit}>
+      <form className="booking-form">
         <div className="form-container">
           <div className="host-div">
             {telly?.tellyId?.type} hosted by {telly?.tellyId?.User?.username}
@@ -68,7 +68,7 @@ function BookingForm() {
           </div>
           <div>number of guests: {guests}</div>
           <div></div>
-          <button className="modal-btn" type="submit">
+          <button className="modal-btn" onClick={book}>
             Book now
           </button>
         </div>
