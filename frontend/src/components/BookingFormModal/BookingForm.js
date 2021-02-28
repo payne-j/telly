@@ -9,7 +9,7 @@ import "./BookingForm.css";
 function BookingForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const user = useSelector((state) => state.session.user);
+  const user = useSelector((state) => state.session.user.id);
   const {
     setLocation,
     startDate,
@@ -20,11 +20,13 @@ function BookingForm() {
     length,
   } = useSearch();
 
+  const [userId, setUserId] = useState(user);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      bookingActions.makeBooking(user.id, tellyId, startDate, endDate, total),
-      history.push(`/profile/${user?.id}`)
+      bookingActions.makeBooking(user, tellyId, startDate, endDate, total),
+      history.push(`/profile/${userId}`)
     );
   };
 

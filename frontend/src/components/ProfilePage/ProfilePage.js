@@ -8,19 +8,20 @@ import "./ProfilePage.css";
 function ProfilePage() {
   const dispatch = useDispatch();
   const bookings = useSelector(bookingActions.bookings);
-  const user = useSelector((state) => state.session.user);
+  const user = useSelector((state) => state.session.user.id);
   const [bookingId, setBookingId] = useState();
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    dispatch(bookingActions.userBookings(user?.id));
-  }, [user?.id, setBookingId, refreshKey, dispatch]);
+    console.log("USER", user);
+    dispatch(bookingActions.userBookings(user));
+  }, [user, setBookingId, refreshKey, dispatch]);
 
   const cancel = (e) => {
     dispatch(bookingActions.deleteBooking(e.target.value));
     setRefreshKey((oldKey) => oldKey + 1);
   };
-
+  console.log("BOOKINGS", bookings.booking);
   return (
     <>
       <div className="profile-greeting">You're going to **LOCATION**</div>
