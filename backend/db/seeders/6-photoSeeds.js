@@ -26,6 +26,16 @@ module.exports = {
             "https://media.timeout.com/images/104097499/630/472/image.jpg",
         },
         {
+          tellyId: 1,
+          imageUrl:
+            "https://smartflyer.com/wp-content/uploads/2019/12/20190717_BHH%C2%A9AudreyMa_0089-720x480.jpg",
+        },
+        {
+          tellyId: 1,
+          imageUrl:
+            "http://secure.s.forbestravelguide.com/img/properties/the-beverly-hills-hotel/the-beverly-hills-hotel-premier-king.jpg",
+        },
+        {
           tellyId: 2,
           imageUrl:
             "https://cdn.ostrovok.ru/t/640x400/content/a4/30/a43025bdf20561deb622ab9e43a55b1f3f57998b.jpeg",
@@ -46,6 +56,16 @@ module.exports = {
             "https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1440&h=960&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F24%2F2014%2F08%2Flobby.jpg",
         },
         {
+          tellyId: 2,
+          imageUrl:
+            "http://2.bp.blogspot.com/-TX_43rfDmhE/VEl5nP5NemI/AAAAAAAAjK4/xnV6TEAmbuU/s1600/Elvis-Presley-Heartbreak-Hotel-Memphis-A.jpg",
+        },
+        {
+          tellyId: 2,
+          imageUrl:
+            "https://i.pinimg.com/originals/79/92/e8/7992e88029daa82c9d8a70c94aedee07.jpg",
+        },
+        {
           tellyId: 3,
           imageUrl:
             "http://www.historichotelsthenandnow.com/Images/hotels/CopacabanaPalaceRio/CopacabanaPalaceRio020.jpg",
@@ -63,6 +83,15 @@ module.exports = {
           tellyId: 3,
           imageUrl:
             "https://res.cloudinary.com/grand-luxury/image/upload/w_1920/remote_glh/original/94679-root-interiors-front-desk.jpg",
+        },
+        {
+          tellyId: 3,
+          imageUrl: "https://www.ahstatic.com/photos/b292_ho_00_p_1024x768.jpg",
+        },
+        {
+          tellyId: 3,
+          imageUrl:
+            "https://content.r9cdn.net/rimg/himg/c2/af/3c/leonardo-1201068-ROOFTOP_COPA_3_O-380121.jpg?width=500&height=350&xhint=1620&yhint=999&crop=true%20&outputtype=webp",
         },
         {
           tellyId: 4,
@@ -85,6 +114,16 @@ module.exports = {
             "https://hoteldesigns.net/wp-content/uploads/2017/04/IHG1.jpg",
         },
         {
+          tellyId: 4,
+          imageUrl:
+            "https://www.pointswithacrew.com/wp-content/uploads/2018/06/holiday-inn-express-tiffin-ohio-hotel-review-room.jpg",
+        },
+        {
+          tellyId: 4,
+          imageUrl:
+            "https://digital.ihg.com/is/image/ihg/holiday-inn-hotel-and-suites-madison-3910627051-4x3",
+        },
+        {
           tellyId: 5,
           imageUrl:
             "https://cf.bstatic.com/images/hotel/max1280x900/184/184022328.jpg",
@@ -105,9 +144,19 @@ module.exports = {
             "https://luxegetaways.com/wp-content/uploads/2018/03/Spa_RCNAPLE_00391-e1520900448710-1024x491.jpeg",
         },
         {
+          tellyId: 5,
+          imageUrl:
+            "https://s7d2.scene7.com/is/image/ritzcarlton/50581374-RC%20Naples%20Gumbo%20Limbo%20v1-1",
+        },
+        {
+          tellyId: 5,
+          imageUrl:
+            "https://s7d2.scene7.com/is/image/ritzcarlton/RCNAPGLF_00056?$XlargeViewport100pct$",
+        },
+        {
           tellyId: 6,
           imageUrl:
-            "https://cf.bstatic.com/images/hotel/max1280x900/184/184022328.jpg",
+            "https://s3-media0.fl.yelpcdn.com/bphoto/8eMTY87KWfGHjK0nEL_11A/348s.jpg",
         },
         {
           tellyId: 6,
@@ -125,9 +174,19 @@ module.exports = {
             "https://media.iceportal.com/111877/photos/62090393_XXL.jpg",
         },
         {
+          tellyId: 6,
+          imageUrl:
+            "https://cf.bstatic.com/images/hotel/max1024x768/929/92908748.jpg",
+        },
+        {
+          tellyId: 6,
+          imageUrl:
+            "https://live.staticflickr.com/519/31631561870_db13f1fa5c_b.jpg",
+        },
+        {
           tellyId: 7,
           imageUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/d/d3/Memory-motel.jpg",
+            "https://i.pinimg.com/originals/f6/6e/68/f66e681b238985e6b1c15178e4631946.jpg",
         },
         {
           tellyId: 7,
@@ -143,6 +202,16 @@ module.exports = {
           tellyId: 7,
           imageUrl:
             "https://cdn.newsday.com/polopoly_fs/1.2463215.1308070981!/httpImage/image.jpg_gen/derivatives/landscape_1280/image.jpg",
+        },
+        {
+          tellyId: 7,
+          imageUrl:
+            "https://i.pinimg.com/originals/f6/6e/68/f66e681b238985e6b1c15178e4631946.jpg",
+        },
+        {
+          tellyId: 7,
+          imageUrl:
+            "https://upload.wikimedia.org/wikipedia/commons/d/d3/Memory-motel.jpg",
         },
         {
           tellyId: 8,
@@ -165,9 +234,19 @@ module.exports = {
             "https://www.berjayahotel.com/sites/default/files/hotel-category-offers/kualalumpur/offers-room-berjaya-times-square-hotel-kuala-lumpur.jpg",
         },
         {
+          tellyId: 8,
+          imageUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9EMRNGbJRLSRu2dgY_8ZNFW-g9wiC0j2IZQ&usqp=CAU",
+        },
+        {
+          tellyId: 8,
+          imageUrl:
+            "https://i.pinimg.com/originals/4d/27/5f/4d275f5182da63487f0c3fe5b3b3750f.jpg",
+        },
+        {
           tellyId: 9,
           imageUrl:
-            "https://cf.bstatic.com/images/hotel/max500/527/52756023.jpg",
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/bc/32/04/exterior.jpg?w=900&h=-1&s=1",
         },
         {
           tellyId: 9,
@@ -183,6 +262,16 @@ module.exports = {
           tellyId: 9,
           imageUrl:
             "https://d3hfxk7rwdcpol.cloudfront.net/CSN/b2067ac0-6102-43a8-887a-89d6cdd4f7ba/images/9eeabba3362b4beb9f41c5bfadfa91bd_LARGE.jpg",
+        },
+        {
+          tellyId: 9,
+          imageUrl:
+            "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/f2/eb/f2/my-blue-hotel.jpg?w=900&h=-1&s=1",
+        },
+        {
+          tellyId: 9,
+          imageUrl:
+            "https://www.angadartshotel.com/assets/images/home/Room-BLUE.jpg",
         },
       ],
       {}

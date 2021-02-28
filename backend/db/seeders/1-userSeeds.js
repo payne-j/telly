@@ -20,7 +20,7 @@ module.exports = {
         {
           firstName: "Don",
           lastName: "Henley",
-          username: "Eagles",
+          username: "the_EAGLES",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage:
@@ -30,7 +30,7 @@ module.exports = {
         {
           firstName: "Barry",
           lastName: "Manilow",
-          username: "barry",
+          username: "barryMANNilow",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage:
@@ -40,7 +40,7 @@ module.exports = {
         {
           firstName: "Elvis",
           lastName: "Presley",
-          username: "the-king",
+          username: "Elvis_Presley",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage: "https://avatarfiles.alphacoders.com/716/71639.jpg",
@@ -49,7 +49,7 @@ module.exports = {
         {
           firstName: "Sugarhill",
           lastName: "Gang",
-          username: "bangbangboogie",
+          username: "sugarhillGang",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage:
@@ -59,7 +59,7 @@ module.exports = {
         {
           firstName: "Irving",
           lastName: "Berlin",
-          username: "ritzyritz",
+          username: "irving-berlin",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage:
@@ -79,7 +79,7 @@ module.exports = {
         {
           firstName: "Rolling",
           lastName: "Stones",
-          username: "rocknroll",
+          username: "the_Stones",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage:
@@ -89,7 +89,7 @@ module.exports = {
         {
           firstName: "Ella",
           lastName: "Fitzgerald",
-          username: "queenofjazz",
+          username: "Ella-Fitzgerald",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage:
@@ -99,7 +99,7 @@ module.exports = {
         {
           firstName: "Chris",
           lastName: "Isaak",
-          username: "loneyboy",
+          username: "chris_isaak",
           email: faker.internet.email(),
           phone: faker.phone.phoneNumber(),
           profileImage:
