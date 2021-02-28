@@ -10,13 +10,15 @@ function ProfilePage() {
   const bookings = useSelector(bookingActions.bookings);
   const user = useSelector((state) => state.session.user);
   const [bookingId, setBookingId] = useState();
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     dispatch(bookingActions.userBookings(user?.id));
-  }, [user?.id, setBookingId, dispatch]);
+  }, [user?.id, setBookingId, refreshKey, dispatch]);
 
   const cancel = (e) => {
     dispatch(bookingActions.deleteBooking(e.target.value));
+    setRefreshKey((oldKey) => oldKey + 1);
   };
 
   return (
