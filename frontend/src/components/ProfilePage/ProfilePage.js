@@ -13,24 +13,31 @@ function ProfilePage() {
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    console.log("USER", user);
     dispatch(bookingActions.userBookings(user));
-  }, [user, setBookingId, refreshKey, dispatch]);
+  }, [user, refreshKey, dispatch]);
 
   const cancel = (e) => {
     dispatch(bookingActions.deleteBooking(e.target.value));
     setRefreshKey((oldKey) => oldKey + 1);
   };
-  console.log("BOOKINGS", bookings.booking);
+
+  const [showBookings, setShowBookings] = useState(false);
+
+  const show = () => {
+    showBookings ? setShowBookings(false) : setShowBookings(true);
+  };
+
   return (
     <>
       <div className="profile-greeting">You're going to **LOCATION**</div>
       <img className="profile-image" alt="" src={`${user?.profileImage}`}></img>
       <div>{user?.username}</div>
-      <div className="bookings-div">Upcoming Bookings</div>
+      <div className="bookings-div">
+        Upcoming Bookings <button onClick={show}>Show bookings</button>
+      </div>
       <div className="user-bookings">
-        {bookings &&
-          bookings?.booking?.map((booking, idx) => (
+        {showBookings &&
+          bookings.booking.map((booking, idx) => (
             <div key={idx} className="booking-container">
               <div className="user-booking">{booking?.Telly.name}</div>
               <div className="user-dates">

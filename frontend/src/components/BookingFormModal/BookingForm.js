@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as searchActions from "../../store/search";
 import * as bookingActions from "../../store/booking";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import "./BookingForm.css";
 
 function BookingForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector((state) => state.session.user.id);
   const {
     setLocation,
@@ -25,8 +26,8 @@ function BookingForm() {
     dispatch(
       bookingActions.makeBooking(userId, tellyId, startDate, endDate, total)
     );
+    history.push(`/profile/${userId}`);
   };
-
   useEffect(() => {
     dispatch(searchActions.tellyPage(tellyId));
   }, [tellyId, setLocation, dispatch]);
@@ -67,9 +68,7 @@ function BookingForm() {
           </div>
           <div>number of guests: {guests}</div>
           <div></div>
-          <button className="modal-btn" onClick={book}>
-            <Link to={`/profile/${userId}`}>Book now</Link>
-          </button>
+          <button className="modal-btn" onClick={book}></button>
         </div>
       </form>
     </>
