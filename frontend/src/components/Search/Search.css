@@ -12,3 +12,7 @@ button {
 .errors {
   list-style: none;
 }
+
+.suggestion-list .suggestions {
+  background-color: rgba(0, 0, 0, 0.1);
+}

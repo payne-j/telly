@@ -28,7 +28,7 @@ function BookingsPage() {
   };
   return (
     <>
-      <div className="bookings-user">{user.username}</div>
+      <div className="bookings-user">Bon voyage, {user.username}</div>
       <div className="bookings-div">
         Upcoming Bookings{" "}
         <button id="show-btn" onClick={show}>
@@ -61,7 +61,7 @@ function BookingsPage() {
             </div>
           ))}
       </div>
-      <svg 
+      <svg
         id="f7ee2044-fccd-4254-8d0a-396acfe54447"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
