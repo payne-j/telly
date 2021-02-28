@@ -28,7 +28,7 @@ function BookingsPage() {
   };
   return (
     <>
-      <div>{user.username}</div>
+      <div className="bookings-user">{user.username}</div>
       <div className="bookings-div">
         Upcoming Bookings{" "}
         <button id="show-btn" onClick={show}>
@@ -42,7 +42,7 @@ function BookingsPage() {
               <div className="profile-greeting">
                 You're going to {booking?.Telly?.city}!
               </div>
-              <i class="fas fa-suitcase-rolling"></i>
+              <i className="fas fa-suitcase-rolling"></i>
               <div className="user-booking">{booking?.Telly.name}</div>
               <div className="user-dates">
                 {booking?.startDate &&
