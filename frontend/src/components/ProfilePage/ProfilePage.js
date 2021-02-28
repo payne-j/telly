@@ -8,13 +8,13 @@ import "./ProfilePage.css";
 function ProfilePage() {
   const dispatch = useDispatch();
   const bookings = useSelector(bookingActions.bookings);
-  const user = useSelector((state) => state.session.user.id);
+  const user = useSelector((state) => state.session.user);
   const [bookingId, setBookingId] = useState();
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    dispatch(bookingActions.userBookings(user));
-  }, [user, refreshKey, dispatch]);
+    dispatch(bookingActions.userBookings(user.id));
+  }, [user.id, refreshKey, dispatch]);
 
   const cancel = (e) => {
     dispatch(bookingActions.deleteBooking(e.target.value));
@@ -26,19 +26,23 @@ function ProfilePage() {
   const show = () => {
     showBookings ? setShowBookings(false) : setShowBookings(true);
   };
-
   return (
     <>
-      <div className="profile-greeting">You're going to **LOCATION**</div>
-      <img className="profile-image" alt="" src={`${user?.profileImage}`}></img>
-      <div>{user?.username}</div>
+      <div>{user.username}</div>
       <div className="bookings-div">
-        Upcoming Bookings <button onClick={show}>Show bookings</button>
+        Upcoming Bookings{" "}
+        <button id="show-btn" onClick={show}>
+          Show bookings
+        </button>
       </div>
       <div className="user-bookings">
         {showBookings &&
           bookings.booking.map((booking, idx) => (
             <div key={idx} className="booking-container">
+              <div className="profile-greeting">
+                You're going to {booking?.Telly?.city}!
+              </div>
+              <i class="fas fa-suitcase-rolling"></i>
               <div className="user-booking">{booking?.Telly.name}</div>
               <div className="user-dates">
                 {booking?.startDate &&
@@ -57,7 +61,6 @@ function ProfilePage() {
             </div>
           ))}
       </div>
-      <div className="reviews-div">Reviews</div>
     </>
   );
 }

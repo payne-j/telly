@@ -33,7 +33,7 @@ function BookingForm() {
   }, [tellyId, setLocation, dispatch]);
 
   const telly = useSelector(searchActions.resultId);
-
+  console.log('TELLY:', telly)
   return (
     <>
       <div>
@@ -68,7 +68,9 @@ function BookingForm() {
           </div>
           <div>number of guests: {guests}</div>
           <div></div>
-          <button className="modal-btn" onClick={book}></button>
+          <button className="modal-btn" onClick={book}>
+            Book now
+          </button>
         </div>
       </form>
     </>

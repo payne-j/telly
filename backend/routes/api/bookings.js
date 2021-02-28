@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
-const { Booking, Telly } = require("../../db/models");
+const { Booking, Telly, User } = require("../../db/models");
 
 const bookingNotFound = (bookingId) => {
   const err = Error(`Booking with an id of ${bookingId} could not be found`);
@@ -31,7 +31,7 @@ router.get(
     const userId = req.params.userId;
     const results = await Booking.findAll({
       where: { userId },
-      include: Telly,
+      include: [Telly, User],
       order: [["startDate", "DESC"]],
     });
     res.json({ booking: results });

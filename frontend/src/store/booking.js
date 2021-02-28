@@ -48,7 +48,6 @@ export const makeBooking = (
 };
 
 export const userBookings = (userId) => async (dispatch) => {
-  console.log(userId);
   const response = await fetch(`/api/bookings/${userId}`);
   const data = await response.json();
   dispatch(getBooking(data.booking));
