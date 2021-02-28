@@ -21,6 +21,7 @@ function BookingForm() {
   } = useSearch();
 
   const [userId, setUserId] = useState(user);
+  setUserId(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +33,8 @@ function BookingForm() {
 
   useEffect(() => {
     dispatch(searchActions.tellyPage(tellyId));
-  }, [tellyId, setLocation, dispatch]);
+    return () => {};
+  }, [tellyId, dispatch]);
 
   const telly = useSelector(searchActions.resultId);
 
