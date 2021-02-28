@@ -1,5 +1,8 @@
+import { csrfFetch } from "./csrf";
+
 const GET_LOCATION = "search/getLocation";
 const GET_ID = "search/getId";
+const GET_DISCOVERIES = "search/getDiscoveries";
 
 const getLocation = (location) => {
   return {
@@ -11,6 +14,12 @@ const getId = (tellyId) => {
   return {
     type: GET_ID,
     payload: tellyId,
+  };
+};
+const getDiscoveries = (discoveries) => {
+  return {
+    type: GET_DISCOVERIES,
+    payload: discoveries,
   };
 };
 
@@ -29,6 +38,13 @@ export const tellyPage = (tellyId) => async (dispatch) => {
   return data.tellyId;
 };
 
+export const discover = () => async (dispatch) => {
+  const response = await fetch(`/api/search/discover`);
+  const data = await response.json();
+  dispatch(getDiscoveries(data.discoveries));
+  return data.discoveries;
+};
+
 export const availability = (location, startDate, endDate, guests) => async (
   dispatch
 ) => {
@@ -42,6 +58,7 @@ export const availability = (location, startDate, endDate, guests) => async (
 
 export const searchResults = (session) => session.search.location;
 export const resultId = (session) => session.search;
+export const discoverResults = (session) => session.search.discover;
 const initialState = { location: null };
 
 const searchReducer = (state = initialState, action) => {
@@ -54,6 +71,10 @@ const searchReducer = (state = initialState, action) => {
     case GET_ID:
       newState = Object.assign({}, state);
       newState.tellyId = action.payload;
+      return newState;
+    case GET_DISCOVERIES:
+      newState = Object.assign({}, state);
+      newState.discoveries = action.payload;
       return newState;
     default:
       return state;

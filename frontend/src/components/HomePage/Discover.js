@@ -1,6 +1,13 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as searchActions from "../../store/search";
+
 import "./HomePage.css";
 
 function Discover() {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(searchActions.discover()), [dispatch]);
+  const results = useSelector(searchActions.discoverResults);
   return (
     <>
       <ul className="discoveries">
