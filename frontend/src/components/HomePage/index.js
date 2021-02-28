@@ -281,7 +281,7 @@ function HomePage() {
         </svg>
       </div>
       <div className="div-line"></div>
-      <div className="discover">Discover</div>
+      {/* <div className="discover">Discover</div>
       <div>
         <Discover />
       </div>
@@ -289,7 +289,7 @@ function HomePage() {
       <div className="meet-our-hosts">Meet Our Hosts</div>
       <div className="host-container">
         <Hosts />
-      </div>
+      </div> */}
     </>
   );
 }

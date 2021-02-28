@@ -33,9 +33,11 @@ function BookingForm() {
   }, [tellyId, setLocation, dispatch]);
 
   const telly = useSelector(searchActions.resultId);
-  console.log('TELLY:', telly)
   return (
     <>
+      <div className="confirm-booking">
+        <span>Confirm booking</span>
+      </div>
       <div>
         <img
           alt=""

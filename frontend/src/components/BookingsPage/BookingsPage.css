@@ -14,6 +14,7 @@
   border: 5px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+  border: 0.16em solid #ffffff;
 }
 .user-dates {
   width: 100%;
@@ -30,6 +31,7 @@
   min-width: 80px;
   background-color: rgba(221, 190, 169, 0.3);
   cursor: pointer;
+  border: 0.16em solid #ffffff;
 }
 
 #show-btn:hover {
@@ -40,4 +42,21 @@
 #show-btn:active {
   color: #bbbbbb;
   border-color: #bbbbbb;
+}
+
+.bookings-div {
+  padding-top: 60px;
+}
+.bookings-user {
+  padding-top: 40px;
+}
+
+.bookings-div {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#f7ee2044-fccd-4254-8d0a-396acfe54447 {
+  width: 100%;
+  padding-top: 40px;
 }

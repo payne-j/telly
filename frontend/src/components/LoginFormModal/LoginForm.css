@@ -1,18 +1,4 @@
-.div-lines {
-  border-bottom: 1px solid black;
-}
-
-#modal-host {
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-}
-
-.host-div {
-  align-items: center;
-}
-
-.booking-btn {
+.login-btn {
   display: inline-block;
   border: 0.16em solid #ffffff;
   color: black;
@@ -25,18 +11,12 @@
   cursor: pointer;
 }
 
-.booking-btn:hover {
+.login-btn:hover {
   color: black;
   border-color: rgba(165, 165, 141, 0.2);
   background-color: rgba(221, 190, 169, 0.5);
 }
-.booking-btn:active {
+.login-btn:active {
   color: #bbbbbb;
   border-color: #bbbbbb;
-}
-
-.confirm-booking {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
 }

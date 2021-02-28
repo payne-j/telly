@@ -49,6 +49,16 @@ router.get(
     res.json({ tellyId: results });
   })
 );
+router.get(
+  "/discover",
+  asyncHandler(async (req, res) => {
+    const results = await Telly.findAll({
+      // order: [["createdAt", "DESC"]],
+      // limit: 5,
+    });
+    res.json({ discoveries: results });
+  })
+);
 //Query for location list match from search
 router.get(
   "/:location/:startDate/:endDate/:guests",
