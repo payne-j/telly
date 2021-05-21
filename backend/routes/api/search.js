@@ -53,8 +53,8 @@ router.get(
   "/discover",
   asyncHandler(async (req, res) => {
     const results = await Telly.findAll({
-      // order: [["createdAt", "DESC"]],
-      // limit: 5,
+      order: [["createdAt", "DESC"]],
+      limit: 5,
     });
     res.json({ discoveries: results });
   })
