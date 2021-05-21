@@ -58,7 +58,7 @@ export const availability = (location, startDate, endDate, guests) => async (
 
 export const searchResults = (session) => session.search.location;
 export const resultId = (session) => session.search;
-export const discoverResults = (session) => session.search.discover;
+export const discoverResults = (session) => session.search.discoveries
 const initialState = { location: null };
 
 const searchReducer = (state = initialState, action) => {

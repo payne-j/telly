@@ -7,11 +7,11 @@ import "./HomePage.css";
 function Discover() {
   const dispatch = useDispatch();
   useEffect(() => dispatch(searchActions.discover()), [dispatch]);
-  const results = useSelector(searchActions.discoverResults);
+  const discovery = useSelector(searchActions.discoverResults);
   return (
     <>
       <ul className="discoveries">
-        <li className="discovery">Telly 1</li>
+        <li className="discovery">{discovery?.name}</li>
         <li className="discovery">Telly 2</li>
         <li className="discovery">Telly 3</li>
         <li className="discovery">Telly 4</li>

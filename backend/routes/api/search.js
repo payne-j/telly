@@ -5,6 +5,20 @@ const { requireAuth } = require("../../utils/auth");
 const { Op } = require("sequelize");
 const { Telly, User, Review, Photo } = require("../../db/models");
 
+//query for latest tellies
+router.get(
+  "/discover",
+  asyncHandler(async (req, res) => {
+    const results = await Telly.findAll({
+      order: [["createdAt", "DESC"]],
+      limit: 5,
+    });
+    console.log("RESULTS________________", results)
+    // const photos = await Photos.findAll
+    res.json({ discoveries: results });
+  })
+);
+
 //autofill query for searchbar
 router.get(
   "/:location",
@@ -49,16 +63,7 @@ router.get(
     res.json({ tellyId: results });
   })
 );
-router.get(
-  "/discover",
-  asyncHandler(async (req, res) => {
-    const results = await Telly.findAll({
-      order: [["createdAt", "DESC"]],
-      limit: 5,
-    });
-    res.json({ discoveries: results });
-  })
-);
+
 //Query for location list match from search
 router.get(
   "/:location/:startDate/:endDate/:guests",
