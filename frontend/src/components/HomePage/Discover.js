@@ -22,8 +22,8 @@ function Discover() {
                     alt={discovery?.name}
                   />
                 </div>
-                <div>{discovery?.name}</div>
-                <div>
+                <div className="discovery_text">{discovery?.name}</div>
+                <div className="discovery_text">
                   {discovery?.city}, {""}
                   {discovery?.state}
                 </div>
