@@ -10,11 +10,15 @@ router.get(
   "/discover",
   asyncHandler(async (req, res) => {
     const results = await Telly.findAll({
+      include: [
+        {
+          model: Photo,
+        },
+      ],
       order: [["createdAt", "DESC"]],
       limit: 5,
     });
-    console.log("RESULTS________________", results)
-    // const photos = await Photos.findAll
+    console.log("RESULTS------------", results);
     res.json({ discoveries: results });
   })
 );
