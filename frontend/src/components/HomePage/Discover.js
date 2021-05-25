@@ -14,12 +14,18 @@ function Discover() {
         {discoveries &&
           discoveries?.map((discovery) => (
             <li className="discovery">
-              <img src={discovery?.Photos[0]?.imageUrl} alt={discovery?.name} />
-              <br />
-              {discovery?.name}
-              <br />
-              {discovery?.city}, {""}
-              {discovery?.state}
+              <div>
+                <img
+                  className="discovery_photos"
+                  src={discovery?.Photos[0]?.imageUrl}
+                  alt={discovery?.name}
+                />
+              </div>
+              <div>{discovery?.name}</div>
+              <div>
+                {discovery?.city}, {""}
+                {discovery?.state}
+              </div>
             </li>
           ))}
       </ul>
