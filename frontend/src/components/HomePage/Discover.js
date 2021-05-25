@@ -13,20 +13,22 @@ function Discover() {
       <ul className="discoveries">
         {discoveries &&
           discoveries?.map((discovery) => (
-            <li className="discovery">
-              <div>
-                <img
-                  className="discovery_photos"
-                  src={discovery?.Photos[0]?.imageUrl}
-                  alt={discovery?.name}
-                />
-              </div>
-              <div>{discovery?.name}</div>
-              <div>
-                {discovery?.city}, {""}
-                {discovery?.state}
-              </div>
-            </li>
+            <a href={`/search/tellies/${discovery.id}`}>
+              <li className="discovery">
+                <div>
+                  <img
+                    className="discovery_photos"
+                    src={discovery?.Photos[0]?.imageUrl}
+                    alt={discovery?.name}
+                  />
+                </div>
+                <div>{discovery?.name}</div>
+                <div>
+                  {discovery?.city}, {""}
+                  {discovery?.state}
+                </div>
+              </li>
+            </a>
           ))}
       </ul>
     </>
