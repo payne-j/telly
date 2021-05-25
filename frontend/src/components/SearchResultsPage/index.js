@@ -12,7 +12,7 @@ function SearchResults() {
       <div>Search Results</div>
       <div>
         <ul>
-          {results.map((result, idx) => (
+          {results?.map((result, idx) => (
             <li className="search-result" key={result?.tellyId + idx}>
               <div className="search-description">
                 {result?.type} in {result?.city}{" "}

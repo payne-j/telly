@@ -7,15 +7,20 @@ import "./HomePage.css";
 function Discover() {
   const dispatch = useDispatch();
   useEffect(() => dispatch(searchActions.discover()), [dispatch]);
-  const discovery = useSelector(searchActions.discoverResults);
+  const discoveries = useSelector(searchActions.discoverResults);
   return (
     <>
       <ul className="discoveries">
-        <li className="discovery">{discovery?.name}</li>
-        <li className="discovery">Telly 2</li>
-        <li className="discovery">Telly 3</li>
-        <li className="discovery">Telly 4</li>
-        <li className="discovery">Telly 5</li>
+        {discoveries &&
+          discoveries?.map((discovery) => (
+            <li className="discovery">
+              {discovery?.name}
+              <br/>
+              {discovery?.city}, {""}
+              {discovery?.state}
+              </li>
+
+          ))}
       </ul>
     </>
   );
